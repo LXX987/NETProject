@@ -1,0 +1,37 @@
+﻿@page "/call-web-api"
+@using System.Net.Http
+@using BlazorApp.Service
+@using BlazorApp.Data
+@inject HttpClient Http
+@inject UserApiClient UserService
+
+<!--在网页上注入类型化的UserApiClient去数据-->
+<h3>Component</h3>
+@if (list == null)
+{
+    <h1>空</h1>
+}
+else
+{
+    @foreach (BlazorApp.Data.User t in list)
+    {
+        <h1>@t.user_email</h1>
+    }
+}
+
+@code {
+    private User[]? list;
+
+    protected override async Task OnInitializedAsync()
+    {
+        list = await UserService.GetForecastAsync();
+    }
+
+    /*private List<BlazorApp.Data.User> list { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        var client = _clientFactory.CreateClient();
+        list = await HttpClient.GetFromJsonAsync<JsonElement>("https://localhost:7232/api/user/getall");
+        //list = await Http.GetJsonAsync<List<BlazorApp.Data.User>>("https://localhost:7232/api/user/getall");
+    }*/
+}

@@ -16,6 +16,7 @@ builder.Services.AddControllers()
         options.SerializerSettings.DateFormatString = "yyyy-MM-dd HH:mm:ss"; //格式化时间
     });
 
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

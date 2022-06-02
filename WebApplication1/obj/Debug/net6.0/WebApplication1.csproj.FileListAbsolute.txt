@@ -25,7 +25,6 @@ E:\NET课程\NETProject\NETCoreWebAPI\WebApplication1\WebApplication1\obj\Debug\
 E:\NET课程\NETProject\NETCoreWebAPI\WebApplication1\WebApplication1\obj\Debug\net6.0\WebApplication1.pdb
 E:\NET课程\NETProject\NETCoreWebAPI\WebApplication1\WebApplication1\obj\Debug\net6.0\WebApplication1.genruntimeconfig.cache
 E:\NET课程\NETProject\NETCoreWebAPI\WebApplication1\WebApplication1\obj\Debug\net6.0\ref\WebApplication1.dll
-E:\NET课程\NETProject\NETCoreWebAPI\WebApplication1\WebApplication1\bin\Debug\net6.0\appsetting.json
 E:\NET课程\NETProject\NETCoreWebAPI\WebApplication1\WebApplication1\bin\Debug\net6.0\Humanizer.dll
 E:\NET课程\NETProject\NETCoreWebAPI\WebApplication1\WebApplication1\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
 E:\NET课程\NETProject\NETCoreWebAPI\WebApplication1\WebApplication1\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll

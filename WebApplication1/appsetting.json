@@ -1,5 +1,0 @@
-﻿{
-  "ConnectionStrings": {
-    "Default": "server=localhost;port=3306;database=NETdatabase;uid=root;pwd=123456;CharSet=utf8"
-  }
-}

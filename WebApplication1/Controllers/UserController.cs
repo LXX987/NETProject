@@ -24,7 +24,7 @@ namespace WebApplication1.Controllers
         }
 
         //添加一个数据，传入一个不带ID的，ID是自动加的，不需要传值，默认为0就行
-        [HttpPost("user/postone")]
+        [HttpPost("user/insertOne")]
         public IActionResult PostOne(User user)
         {
             var Parameter = myDbContext.User.FirstOrDefault(a => a.user_id == user.user_id);
@@ -38,7 +38,7 @@ namespace WebApplication1.Controllers
         }
 
         //修改数据,传入对象，找到对应id的数据实现更新
-        [HttpPost("parameter/modifyone")]
+        [HttpPost("user/modifyOne")]
         public IActionResult Modify(int user_id, string user_pwd)
         {
             var Parameter = myDbContext.User.FirstOrDefault(a => a.user_id == user_id);
@@ -56,7 +56,7 @@ namespace WebApplication1.Controllers
         }
 
         //移除一个对象，根据id移除
-        [HttpPost("parameter/Removeone")]
+        [HttpPost("user/removeOne")]
         public IActionResult Remove(User user)
         {
             var Parameter = myDbContext.User.FirstOrDefault(a => a.user_id == user.user_id);

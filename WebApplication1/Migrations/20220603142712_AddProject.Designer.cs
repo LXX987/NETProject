@@ -11,7 +11,7 @@ using WebApplication1.Models;
 namespace WebApplication1.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20220603083306_AddProject")]
+    [Migration("20220603142712_AddProject")]
     partial class AddProject
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,9 +27,6 @@ namespace WebApplication1.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("commodity_id");
-
-                    b.Property<int>("Usersuser_id")
-                        .HasColumnType("int");
 
                     b.Property<string>("commodity_name")
                         .IsRequired()
@@ -53,11 +50,10 @@ namespace WebApplication1.Migrations
                         .HasColumnName("total_count");
 
                     b.Property<int>("user_id")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("user_id");
 
                     b.HasKey("commodity_id");
-
-                    b.HasIndex("Usersuser_id");
 
                     b.ToTable("Commodity", (string)null);
                 });
@@ -70,10 +66,8 @@ namespace WebApplication1.Migrations
                         .HasColumnName("order_id");
 
                     b.Property<int>("commodity_id")
-                        .HasColumnType("int");
-
-                    b.Property<int>("commodity_id1")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("commodity_id");
 
                     b.Property<int>("count")
                         .HasColumnType("int")
@@ -88,16 +82,10 @@ namespace WebApplication1.Migrations
                         .HasColumnName("total_price");
 
                     b.Property<int>("user_id")
-                        .HasColumnType("int");
-
-                    b.Property<int>("user_id1")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("user_id");
 
                     b.HasKey("order_id");
-
-                    b.HasIndex("commodity_id1");
-
-                    b.HasIndex("user_id1");
 
                     b.ToTable("Order", (string)null);
                 });
@@ -110,10 +98,8 @@ namespace WebApplication1.Migrations
                         .HasColumnName("temporaryOrder_id");
 
                     b.Property<int>("commodity_id")
-                        .HasColumnType("int");
-
-                    b.Property<int>("commodity_id1")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("commodity_id");
 
                     b.Property<int>("count")
                         .HasColumnType("int")
@@ -128,16 +114,10 @@ namespace WebApplication1.Migrations
                         .HasColumnName("total_price");
 
                     b.Property<int>("user_id")
-                        .HasColumnType("int");
-
-                    b.Property<int>("user_id1")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("user_id");
 
                     b.HasKey("temporaryOrder_id");
-
-                    b.HasIndex("commodity_id1");
-
-                    b.HasIndex("user_id1");
 
                     b.ToTable("TemporaryOrder", (string)null);
                 });
@@ -172,55 +152,6 @@ namespace WebApplication1.Migrations
                     b.HasKey("user_id");
 
                     b.ToTable("User", (string)null);
-                });
-
-            modelBuilder.Entity("WebApplication1.Models.Commodity", b =>
-                {
-                    b.HasOne("WebApplication1.Models.User", "Users")
-                        .WithMany()
-                        .HasForeignKey("Usersuser_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Users");
-                });
-
-            modelBuilder.Entity("WebApplication1.Models.Order", b =>
-                {
-                    b.HasOne("WebApplication1.Models.Commodity", "Commodity")
-                        .WithMany()
-                        .HasForeignKey("commodity_id1")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WebApplication1.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("user_id1")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Commodity");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("WebApplication1.Models.TemporaryOrder", b =>
-                {
-                    b.HasOne("WebApplication1.Models.Commodity", "Commodity")
-                        .WithMany()
-                        .HasForeignKey("commodity_id1")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WebApplication1.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("user_id1")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Commodity");
-
-                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }

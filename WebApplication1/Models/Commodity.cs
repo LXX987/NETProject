@@ -14,9 +14,9 @@ namespace WebApplication1.Models
         [Column("commodity_id")]
         public int commodity_id { get; set; }
 
-        [ForeignKey("user_id")]
+        [Column("user_id")]
         public int user_id { get; set; }
-        public virtual User Users { get; set; } = new User();
+        //public virtual User Users { get; set; } = new User();
 
         [Column("commodity_name")]
         public string commodity_name { get; set; } = null!;

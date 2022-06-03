@@ -15,13 +15,13 @@ namespace WebApplication1.Models
         [Column("temporaryOrder_id")]
         public int temporaryOrder_id { get; set; }
 
-        [ForeignKey("user_id")]
+        [Column("user_id")]
         public int user_id { get; set; }
-        public virtual User User { get; set; } = new User();
+        //public virtual User User { get; set; } = new User();
 
-        [ForeignKey("commodity_id")]
+        [Column("commodity_id")]
         public int commodity_id { get; set; }
-        public virtual Commodity Commodity { get; set; } = new Commodity();
+        //public virtual Commodity Commodity { get; set; } = new Commodity();
 
         [Column("time")]
         public DateTime time { get; set; }

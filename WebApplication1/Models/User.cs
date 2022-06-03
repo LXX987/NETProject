@@ -11,7 +11,7 @@ namespace WebApplication1.Models
     public partial class User
     {
         [Key]
-        [Column("id")]
+        [Column("user_id")]
         public int user_id { get; set; }
 
         [Column("userEmail")]
@@ -19,5 +19,11 @@ namespace WebApplication1.Models
 
         [Column("userPwd")]
         public string user_pwd { get; set; } = null!;
+
+        [Column("userName")]
+        public string userName { get; set; } = null!;
+
+        [Column("userType")]
+        public string userType { get; set; } = null!;
     }
 }

@@ -1,6 +1,8 @@
 ﻿using WebApplication1.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebApplication1.Common;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApplication1.Controllers
 {
@@ -69,6 +71,48 @@ namespace WebApplication1.Controllers
             myDbContext.User.Remove(Parameter);
             myDbContext.SaveChanges();
             return Ok(user);
+        }
+
+        //用户登录
+        [HttpPost("user/login")]
+        public IActionResult Login(string user_email, string user_pwd, string userType)
+        {
+            var Parameter = myDbContext.User.FirstOrDefault(a => a.user_email == user_email);
+            if (Parameter == null)
+            {
+                return BadRequest(new { conut = -1, msg = "该邮箱未注册账号，未找到数据" });
+            }
+            if (user_pwd != Parameter.user_pwd)
+            {
+                return BadRequest(new { conut = -1, msg = "密码错误" });
+            }
+            else if (userType != Parameter.userType)
+            {
+                return BadRequest(new { conut = -1, msg = "用户类型错误" });
+            }
+            else
+            {
+                string jwtStr = string.Empty;
+                // 将用户id和角色名，作为单独的自定义变量封装进 token 字符串中。
+                TokenModel tokenModel = new TokenModel { Uid = Parameter.user_id.ToString() };
+                jwtStr = JwtHelper.IssueJwt(tokenModel);//获取到一定规则的 Token 令牌
+
+                return Ok(new { data = Parameter, msg = "登录成功" , token= jwtStr });
+
+            }
+        }
+
+        //获取一个用户的数据
+        [HttpGet("user/searchUser")]
+        public IActionResult SearchUser()
+        {
+            string jwtStr = this.Request.Headers["Authorization"];//Header中的token
+            var tm = JwtHelper.SerializeJwt(jwtStr);
+            string id = tm.Uid;
+            int user_id = 0;
+            int.TryParse(id, out user_id);
+            var Parameter = myDbContext.User.FirstOrDefault(a => a.user_id == user_id);
+            return Ok(Parameter);
         }
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Common;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication;
 
 namespace WebApplication1.Controllers
 {
@@ -104,9 +105,12 @@ namespace WebApplication1.Controllers
 
         //获取一个用户的数据
         [HttpGet("user/searchUser")]
+        [Authorize]
         public IActionResult SearchUser()
         {
-            string jwtStr = this.Request.Headers["Authorization"];//Header中的token
+            var token=HttpContext.GetTokenAsync("Bearer", "access_token");
+            string jwtStr = token.Result;
+            /*string jwtStr = Request.Headers["Authorization"];//Header中的token*/
             var tm = JwtHelper.SerializeJwt(jwtStr);
             string id = tm.Uid;
             int user_id = 0;

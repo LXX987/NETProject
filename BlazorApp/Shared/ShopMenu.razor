@@ -1,6 +1,6 @@
 ﻿<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">团多多限时购物平台</a>
+        <a class="navbar-brand" href="">团多多商家端</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -10,18 +10,18 @@
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
     <nav class="flex-column">
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="Products" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> 首页
+            <NavLink class="nav-link" href="shopCenter" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> 店铺中心
             </NavLink>
         </div>
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="groupShop">
-                <span class="oi oi-plus" aria-hidden="true"></span> 商家
+            <NavLink class="nav-link" href="shopAddProduct">
+                <span class="oi oi-plus" aria-hidden="true"></span> 发布商品
             </NavLink>
         </div>
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="OrderList">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> 我的订单
+            <NavLink class="nav-link" href="shopOrder/0">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> 本店订单
             </NavLink>
         </div>
     </nav>

@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using System.Threading;
 using Microsoft.EntityFrameworkCore;
+using WebApplication1.Common;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication;
 
 namespace WebApplication1.Controllers
 {
@@ -59,5 +62,87 @@ namespace WebApplication1.Controllers
 
         }
 
+        // 查看某个用户的订单
+        [HttpPost("temportaryOrder/searchOne")]
+        [Authorize]
+        public async Task<IActionResult> searchOne()
+        {
+            // 获取token user_id
+            var token = HttpContext.GetTokenAsync("Bearer", "access_token");
+            string jwtStr = token.Result;
+            /*string jwtStr = Request.Headers["Authorization"];//Header中的token*/
+            var tm = JwtHelper.SerializeJwt(jwtStr);
+            string id = tm.Uid;
+            int user_id = 0;
+            int.TryParse(id, out user_id);
+
+            // 查看该user_id的全部记录
+            var Parameter = await TaskSearchUser(user_id);
+            return Ok(Parameter);
+        }
+
+        private async Task<IQueryable<TemporaryOrder>> TaskSearchUser(int user_id)
+        {
+            // return string.Format("task 执行线程:{0}", Thread.CurrentThread.ManagedThreadId);
+            var query = from d in myDbContext.TemporaryOrder
+                        where d.user_id == user_id
+                        select d;
+            return query;
+        }
+
+        // 搜索一条记录
+        [HttpPost("temportaryOrder/searchOneRecord")]
+        [Authorize]
+        public async Task<IActionResult> searchOneRecord(Commodity commodity)
+        {
+            // 获取token user_id
+            var token = HttpContext.GetTokenAsync("Bearer", "access_token");
+            string jwtStr = token.Result;
+            /*string jwtStr = Request.Headers["Authorization"];//Header中的token*/
+            var tm = JwtHelper.SerializeJwt(jwtStr);
+            string id = tm.Uid;
+            int user_id = 0;
+            int.TryParse(id, out user_id);
+
+            string commodity_name = commodity.commodity_name;
+            // 搜索商品名称对应的id，可能有好多个id，list
+            var Parameter = await TaskSearchCommodityId(commodity_name);
+            // 用商品的id去找订单
+            var orderList = await TaskSearchOrderList(user_id, Parameter.commodity_id);
+            return Ok(new { Parameter, orderList });
+        }
+
+        private async Task<Commodity> TaskSearchCommodityId(string commodity_name)
+        {
+            // return string.Format("task 执行线程:{0}", Thread.CurrentThread.ManagedThreadId);
+            var result = await myDbContext.Set<Commodity>().FirstOrDefaultAsync(a => a.commodity_name == commodity_name);
+            return result;
+        }
+
+        private async Task<IQueryable<TemporaryOrder>> TaskSearchOrderList(int user_id, int commodity_id)
+        {
+            // return string.Format("task 执行线程:{0}", Thread.CurrentThread.ManagedThreadId);
+            var query = from d in myDbContext.TemporaryOrder
+                        where d.commodity_id == commodity_id && d.user_id == user_id
+                        select d;
+            return query;
+
+        }
+
+        // 点击查看一条记录的详细信息
+        [HttpPost("temportaryOrder/findInformation")]
+        public async Task<IActionResult> findInformation(TemporaryOrder temporaryOrder)
+        {
+            // 需要商品id
+            var CommodityItem = await TaskFindCommodity(temporaryOrder.commodity_id);
+            return Ok(new { CommodityItem });
+        }
+
+        private async Task<Commodity> TaskFindCommodity(int commodity_id)
+        {
+            // return string.Format("task 执行线程:{0}", Thread.CurrentThread.ManagedThreadId);
+            var result = await myDbContext.Set<Commodity>().FirstOrDefaultAsync(a => a.commodity_id == commodity_id);
+            return result;
+        }
     }
 }

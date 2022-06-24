@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Common;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;
+using System.Threading.Tasks;
+using System.Threading;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApplication1.Controllers
 {
@@ -120,6 +123,34 @@ namespace WebApplication1.Controllers
             int.TryParse(id, out user_id);
             var Parameter = myDbContext.User.FirstOrDefault(a => a.user_id == user_id);
             return Ok(Parameter);
+        }
+
+        // 搜索某个团购主
+        [HttpPost("commodity/searchOwner")]
+        public async Task<IActionResult> searchOwner(User user)
+        {
+            string user_name = user.userName;
+            // 搜索user的其他信息
+            var Parameter = await TaskSearchOwner(user_name);
+            // 搜索user的全部商品
+            var ParameterCommodity = await TaskSearchUserCommodity(Parameter.user_id);
+            return Ok(new { Parameter, ParameterCommodity });
+        }
+
+        private async Task<User> TaskSearchOwner(string user_name)
+        {
+            // return string.Format("task 执行线程:{0}", Thread.CurrentThread.ManagedThreadId);
+            var result = await myDbContext.Set<User>().FirstOrDefaultAsync(a => a.userName == user_name);
+            return result;
+        }
+
+        private async Task<IQueryable<Commodity>> TaskSearchUserCommodity(int user_id)
+        {
+            // return string.Format("task 执行线程:{0}", Thread.CurrentThread.ManagedThreadId);
+            var query = from d in myDbContext.Commodity
+                        where d.user_id == user_id
+                        select d;
+            return query;
         }
     }
 }

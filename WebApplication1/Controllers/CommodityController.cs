@@ -38,7 +38,7 @@ namespace WebApplication1.Controllers
             {
                 return BadRequest(new { conut = -1, msg = "添加失败，id重复" });
             }
-            
+
             Commodity commodity = new Commodity();
             commodity.commodity_id = commodity_id;
             commodity.user_id = user_id;
@@ -57,7 +57,7 @@ namespace WebApplication1.Controllers
         public IActionResult DeleteOne(Commodity commodity)
         {
             var Parameter = myDbContext.Commodity.FirstOrDefault(a => a.commodity_id == commodity.commodity_id);
-            
+
             //修改数据
             if (Parameter == null)
             {
@@ -138,5 +138,45 @@ namespace WebApplication1.Controllers
             return result;
 
         }
+
+        // 搜索商品
+        [HttpPost("commodity/searchCommodity")]
+        public async Task<IActionResult> searchCommodity(Commodity commodity)
+        {
+            // 从commodity里面拿到商品名称
+            string commodity_name = commodity.commodity_name;
+            // 查找商品
+            var Parameter = await TaskSearchCommodity(commodity_name);
+            return Ok(Parameter);
+        }
+        private async Task<IQueryable<Commodity>> TaskSearchCommodity(string commodity_name)
+        {
+            // return string.Format("task 执行线程:{0}", Thread.CurrentThread.ManagedThreadId);
+            var query = from d in myDbContext.Commodity
+                        where d.commodity_name == commodity_name
+                        select d;
+            return query;
+
+        }
+
+        // 发布一项商品
+        [HttpPost("commodity/postCommodity")]
+        [Authorize]
+        public async Task<IActionResult> postCommodity(Commodity commodity)
+        {
+            var token = HttpContext.GetTokenAsync("Bearer", "access_token");
+            string jwtStr = token.Result;
+            /*string jwtStr = Request.Headers["Authorization"];//Header中的token*/
+            var tm = JwtHelper.SerializeJwt(jwtStr);
+            string id = tm.Uid;
+            int user_id = 0;
+            int.TryParse(id, out user_id);
+            // 创建新商品
+            commodity.user_id = user_id;
+            myDbContext.Commodity.Add(commodity);  //添加一个
+            myDbContext.SaveChanges();
+            return Ok(commodity);
+        }
+
     }
 }

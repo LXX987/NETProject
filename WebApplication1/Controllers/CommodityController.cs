@@ -178,5 +178,110 @@ namespace WebApplication1.Controllers
             return Ok(commodity);
         }
 
+        // 团长查看自己的全部商品
+        [HttpPost("commodity/findMyAllCommodities")]
+        [Authorize]
+        public async Task<IActionResult> findMyAllCommodities()
+        {
+            var token = HttpContext.GetTokenAsync("Bearer", "access_token");
+            string jwtStr = token.Result;
+            /*string jwtStr = Request.Headers["Authorization"];//Header中的token*/
+            var tm = JwtHelper.SerializeJwt(jwtStr);
+            string id = tm.Uid;
+            int user_id = 0;
+            int.TryParse(id, out user_id);
+
+            var Parameter = await TaskfindMyAllCommodities(user_id);
+            return Ok(Parameter);
+
+        }
+
+        private async Task<IQueryable<Commodity>> TaskfindMyAllCommodities(int user_id)
+        {
+            // return string.Format("task 执行线程:{0}", Thread.CurrentThread.ManagedThreadId);
+            var query = from d in myDbContext.Commodity
+                        where d.user_id == user_id
+                        select d;
+            return query;
+        }
+
+        // 团长搜索一个自己的商品
+        [HttpPost("commodity/findMyOneCommodities")]
+        [Authorize]
+        public async Task<IActionResult> findMyOneCommodities(Commodity commodity)
+        {
+            var token = HttpContext.GetTokenAsync("Bearer", "access_token");
+            string jwtStr = token.Result;
+            /*string jwtStr = Request.Headers["Authorization"];//Header中的token*/
+            var tm = JwtHelper.SerializeJwt(jwtStr);
+            string id = tm.Uid;
+            int user_id = 0;
+            int.TryParse(id, out user_id);
+
+            string commodity_name = commodity.commodity_name;
+
+            var Parameter = await TaskfindMyOneCommodities(user_id, commodity_name);
+            return Ok(Parameter);
+
+        }
+
+        private async Task<IQueryable<Commodity>> TaskfindMyOneCommodities(int user_id, string commodity_name)
+        {
+            // return string.Format("task 执行线程:{0}", Thread.CurrentThread.ManagedThreadId);
+            var query = from d in myDbContext.Commodity
+                        where d.commodity_name == commodity_name && d.user_id == user_id
+                        select d;
+            return query;
+        }
+
+
+        // 团长修改自己的商品信息
+        [HttpPost("commodity/modifyInformation")]
+        [Authorize]
+        public async Task<IActionResult> modifyInformation(Commodity commodity)
+        {
+            var token = HttpContext.GetTokenAsync("Bearer", "access_token");
+            string jwtStr = token.Result;
+            /*string jwtStr = Request.Headers["Authorization"];//Header中的token*/
+            var tm = JwtHelper.SerializeJwt(jwtStr);
+            string id = tm.Uid;
+            int user_id = 0;
+            int.TryParse(id, out user_id);
+            // 修改商品信息
+            commodity.user_id = user_id;
+            // 检查时间是否过时
+            int compareResult = commodity.end_time.CompareTo(DateTime.Now);
+            Console.WriteLine(compareResult);// 如果修改后的时间大于现在的时间，就是1
+            // 订单信息不用修改，因为商品id不会变
+            if (compareResult == 1)
+            {
+                myDbContext.Commodity.Update(commodity);
+                myDbContext.SaveChanges();
+                return Ok(commodity);
+            }
+            else
+            {
+                return BadRequest(new { conut = -1, msg = "修改失败，商品已下架" });
+            }
+
+        }
+
+        // 查看所有正在进行当中的商品信息
+        [HttpPost("commodity/getAllBuying")]
+        public async Task<IActionResult> getAllBuying()
+        {
+            DateTime currentTime = DateTime.Now;
+            var Parameter = await TaskgetAllBuying(currentTime);
+            return Ok(Parameter);
+        }
+
+        private async Task<IQueryable<Commodity>> TaskgetAllBuying(DateTime currentTime)
+        {
+            // return string.Format("task 执行线程:{0}", Thread.CurrentThread.ManagedThreadId);
+            var query = from d in myDbContext.Commodity
+                        where d.end_time.CompareTo(currentTime) == 1
+                        select d;
+            return query;
+        }
     }
 }

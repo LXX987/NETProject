@@ -1,8 +1,6 @@
-﻿@page "/groupShop"
+﻿@page "/shopCenter"
 @using BlazorApp.Data
-查询商家：<Search Placeholder="input search text" WrapperStyle="width: 200px;" ClassicSearchIcon />
-<Button Type="@ButtonType.Primary" Icon="@IconType.Outline.Search">Search</Button>
-<h3>商家详情</h3>
+<h3>ShopCenter</h3>
 <div>
     <Avatar Size="64" Src="https://img1.imgtp.com/2022/06/24/YZy9Rxfn.png" />
     <span class="mb-5">@shopName</span>
@@ -12,7 +10,7 @@
 @foreach(var item in list)
 {
     <div class="col-md-3 mb-2">
-        <a href="/ProductDetails/@item.commodity_id">
+        <a href="/shopProduct/@item.commodity_id">
             <div class="card">
                 <img class="img-thumbnail" src="https://img1.imgtp.com/2022/06/24/YZy9Rxfn.png" >
                 <div class="card-body">

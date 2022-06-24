@@ -1,0 +1,100 @@
+﻿@page "/shopModifyProduct/{Id:int}"
+@using BlazorApp.Data
+@using System.ComponentModel.DataAnnotations;
+@using System.Text.Json;
+@using System.ComponentModel
+<h3>ShopModifyProduct</h3>
+<h3 class="mb-5">商品详情修改</h3>
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <!--<img class="img-fluid" src="@Product.ImageURL">-->
+            <img class="img-fluid" src="https://img1.imgtp.com/2022/06/24/YZy9Rxfn.png">
+        </div>
+        <Form Model="@model"
+                OnFinish="OnFinish"
+                OnFinishFailed="OnFinishFailed"
+                LabelColSpan="8"
+                WrapperColSpan="16">
+            <FormItem Label="商品名称">
+                <Input @bind-Value="@context.Name" />
+            </FormItem>
+            <FormItem Label="商品价格">
+                <Input @bind-Value="@context.Price" />
+            </FormItem>
+            <FormItem Label="商品数量">
+                <Input @bind-Value="@context.Num" />
+            </FormItem>
+            <FormItem Label="团购开始时间">
+                <DatePicker @bind-Value="@context.StartTime" TValue="DateTime?" ShowTime="@true" OnChange="OnChange" />
+            </FormItem>
+            <FormItem Label="团购结束时间">
+                <DatePicker @bind-Value="@context.EndTime" TValue="DateTime?" ShowTime="@true" OnChange="OnChange" />
+            </FormItem>
+            <FormItem WrapperColOffset="8" WrapperColSpan="16">
+                <Button Type="@ButtonType.Primary" HtmlType="submit" @onclick="addProduct">
+                    提交
+                </Button>
+            </FormItem>
+        </Form>
+    </div>
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    public class Model
+    {
+        [Required, DisplayName("User Name")]
+        public string Name { get; set; } = "hh";
+        [Required]
+        public int Price { get; set; } = 10;
+        [Required]
+        public int Num { get; set; } = 500;
+        [Required]
+        public DateTime? StartTime { get; set; } = DateTime.Now;
+        [Required]
+        public DateTime? EndTime { get; set; } = DateTime.Now;
+    }
+
+    private Model model = new Model();
+
+    private void OnFinish(EditContext editContext)
+    {
+        Console.WriteLine($"Success:{JsonSerializer.Serialize(model)}");
+    }
+
+    private void OnFinishFailed(EditContext editContext)
+    {
+        Console.WriteLine($"Failed:{JsonSerializer.Serialize(model)}");
+    }
+
+    protected void addProduct()
+    {
+        Console.WriteLine($"addProduct:{JsonSerializer.Serialize(model)}");
+    }
+
+    private void OnChange(DateTimeChangedEventArgs args)
+    {
+        Console.WriteLine($"Selected Time: {args.Date}");
+        Console.WriteLine($"Formatted Selected Time: {args.DateString}");
+    }
+
+    void OnSingleCompleted(UploadInfo fileinfo)
+    {
+        if (fileinfo.File.State == UploadState.Success)
+        {
+            var result = fileinfo.File.GetResponse<ResponseModel>();
+            fileinfo.File.Url = result.url;
+        }
+    }
+
+    public class ResponseModel
+    {
+        public string name { get; set; }
+
+        public string status { get; set; }
+
+        public string url { get; set; }
+
+        public string thumbUrl { get; set; }
+    }
+}

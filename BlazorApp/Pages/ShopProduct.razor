@@ -1,0 +1,55 @@
+﻿@page "/shopProduct/{Id:int}"
+@using BlazorApp.Data
+<h3>ShopProduct</h3>
+<div>
+    <Avatar Size="64" Src="https://img1.imgtp.com/2022/06/24/YZy9Rxfn.png" />
+    <span>@shopName</span>
+</div>
+<Divider />
+@if (ErrorMessage != null)
+{
+    <DisplayError ErrorMessage="@ErrorMessage"></DisplayError>
+}
+else
+{
+    <h3 class="mb-5">商品详情</h3>
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <!--<img class="img-fluid" src="@Product.ImageURL">-->
+            <img class="img-fluid" src="https://img1.imgtp.com/2022/06/24/YZy9Rxfn.png">
+        </div>
+        <div class="col-md-6">
+            <h3>@Product.commodity_name</h3>
+            <p class="txt">团购开始时间：@Product.start_time</p>
+            <p class="txt">团购结束时间：@Product.end_time</p>
+            <p class="mb-4">剩余数量：@Product.total_count</p>
+            <p class="mb-4">
+                <b>
+                    @Product.item_price.ToString("C")
+                </b>
+            </p>
+            <div>
+                <button class="btn btn-success"><b>立即购买</b></button>
+            </div>
+        </div>
+
+    </div>
+}
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    Commodity Product = new Commodity();
+    public string ErrorMessage { get; set; }
+    string shopName = "小店";
+    protected override async Task OnInitializedAsync()
+    {
+        Product.commodity_id = 1;
+        Product.commodity_name = "hhh";
+        Product.item_price = 10;
+        Product.total_count = 1000;
+        Product.start_time = new DateTime(2022, 6, 18, 11, 0, 0);
+        Product.end_time = new DateTime(2022, 6, 19, 23, 0, 0);
+    }
+    
+}

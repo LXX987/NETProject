@@ -51,6 +51,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdERldGFpbHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/Pages/ShopAddProduct.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvcEFkZFByb2R1Y3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/Pages/ShopCenter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvcENlbnRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/Pages/ShopModifyProduct.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvcE1vZGlmeVByb2R1Y3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/Pages/ShopOrder.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvcE9yZGVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/Pages/ShopProduct.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvcFByb2R1Y3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/Shared/LoginLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExvZ2luTGF5b3V0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 

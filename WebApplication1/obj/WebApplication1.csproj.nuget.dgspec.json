@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\NET课程\\NETProject\\gitProject\\NETProject\\WebApplication1\\WebApplication1.csproj": {}
+    "E:\\NET课程\\0624latestProjectBackEnd\\NETProject\\WebApplication1\\WebApplication1.csproj": {}
   },
   "projects": {
-    "E:\\NET课程\\NETProject\\gitProject\\NETProject\\WebApplication1\\WebApplication1.csproj": {
+    "E:\\NET课程\\0624latestProjectBackEnd\\NETProject\\WebApplication1\\WebApplication1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\NET课程\\NETProject\\gitProject\\NETProject\\WebApplication1\\WebApplication1.csproj",
+        "projectUniqueName": "E:\\NET课程\\0624latestProjectBackEnd\\NETProject\\WebApplication1\\WebApplication1.csproj",
         "projectName": "WebApplication1",
-        "projectPath": "E:\\NET课程\\NETProject\\gitProject\\NETProject\\WebApplication1\\WebApplication1.csproj",
+        "projectPath": "E:\\NET课程\\0624latestProjectBackEnd\\NETProject\\WebApplication1\\WebApplication1.csproj",
         "packagesPath": "C:\\Users\\W\\.nuget\\packages\\",
-        "outputPath": "E:\\NET课程\\NETProject\\gitProject\\NETProject\\WebApplication1\\obj\\",
+        "outputPath": "E:\\NET课程\\0624latestProjectBackEnd\\NETProject\\WebApplication1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\W\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -76,8 +76,11 @@ namespace WebApplication1.Controllers
 
         //用户登录
         [HttpPost("user/login")]
-        public IActionResult Login(string user_email, string user_pwd, string userType)
+        public IActionResult Login(User user)
         {
+            string user_email = user.user_email;
+            string user_pwd = user.user_pwd;
+            string userType = user.userType;
             var Parameter = myDbContext.User.FirstOrDefault(a => a.user_email == user_email);
             if (Parameter == null)
             {

@@ -1,6 +1,12 @@
 ﻿using WebApplication1.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
+using System.Threading;
+using Microsoft.EntityFrameworkCore;
+using WebApplication1.Common;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication;
 
 namespace WebApplication1.Controllers
 {
@@ -83,6 +89,54 @@ namespace WebApplication1.Controllers
             myDbContext.Commodity.Update(Parameter);
             myDbContext.SaveChanges();
             return Ok();
+        }
+
+        // 购买商品
+        [HttpPost("commodity/purchase")]
+        [Authorize]
+        public async Task<IActionResult> purchase(Commodity commodity)
+        {
+            //注，形参虽然是commodity，但是实际是因为需要给到的商品名称和购买数量，所以选择形参为这个实体类
+            var token = HttpContext.GetTokenAsync("Bearer", "access_token");
+            string jwtStr = token.Result;
+            /*string jwtStr = Request.Headers["Authorization"];//Header中的token*/
+            var tm = JwtHelper.SerializeJwt(jwtStr);
+            string id = tm.Uid;
+            int user_id = 0;
+            int.TryParse(id, out user_id);
+            Console.WriteLine(user_id);
+            // 查找商品
+            var Parameter = await TaskCaller(commodity);
+            if (Parameter == null)
+            {
+                return BadRequest(new { conut = -1, msg = "购买失败，商品不存在" });
+            }
+            if (Parameter.total_count < commodity.total_count)
+            {
+                // 库存不足
+                return BadRequest(new { conut = -1, msg = "购买失败，商品不足" });
+            }
+            Parameter.total_count = Parameter.total_count - commodity.total_count;
+            // 创建订单
+            TemporaryOrder temporaryOrder = new TemporaryOrder();
+            temporaryOrder.user_id = user_id;
+            temporaryOrder.commodity_id = Parameter.commodity_id;
+            temporaryOrder.time = DateTime.Now;
+            temporaryOrder.count = commodity.total_count;
+            temporaryOrder.total_prince = Parameter.item_price * commodity.total_count;
+            myDbContext.TemporaryOrder.Add(temporaryOrder);  //添加一个
+            myDbContext.Commodity.Update(Parameter); // 更新商品属性
+            myDbContext.SaveChanges();
+            return Ok(temporaryOrder);
+
+        }
+
+        private async Task<Commodity> TaskCaller(Commodity commodity)
+        {
+            // return string.Format("task 执行线程:{0}", Thread.CurrentThread.ManagedThreadId);
+            var result = await myDbContext.Set<Commodity>().FirstOrDefaultAsync(a => a.commodity_name == commodity.commodity_name);
+            return result;
+
         }
     }
 }

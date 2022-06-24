@@ -13,6 +13,7 @@
 }
 else
 {
+    <h1>@test</h1>
     @foreach (BlazorApp.Data.User t in list)
     {
         <h1>@t.user_email</h1>
@@ -21,11 +22,15 @@ else
 
 @code {
     private User[]? list;
+    private int test;
 
     protected override async Task OnInitializedAsync()
     {
         list = await UserService.GetForecastAsync();
+        test = await UserService.searchCommodityt("薯片");
     }
+    
+
 
     /*private List<BlazorApp.Data.User> list { get; set; }
     protected override async Task OnInitializedAsync()

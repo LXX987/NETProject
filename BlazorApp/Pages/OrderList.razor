@@ -1,0 +1,50 @@
+﻿@page "/OrderList"
+@using BlazorApp.Data
+@using System.ComponentModel
+@using AntDesign.TableModels
+
+<h3>OrderList</h3>
+<h4 class="mb-2">订单列表</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>订单号</th>
+            <th>商品ID</th>
+            <th>下单时间</th>
+            <th>商品数量</th>
+            <th>总价</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in data)
+        {
+            <tr>
+                <td>@item.temporaryOrder_id</td>
+                <td>@item.commodity_id</td>
+                <td>@item.time</td>
+                <td>@item.count</td>
+                <td>@item.total_prince.ToString("C")</td>
+                <td><a href="/Order/@item.temporaryOrder_id">查看订单详情</a></td>
+            </tr>
+        }
+        
+    </tbody>
+</table>
+@code {
+    //Order[] data = new Order[]
+    List<TemporaryOrder> data = new List<TemporaryOrder>();
+    TemporaryOrder order = new TemporaryOrder();
+
+    protected override async Task OnInitializedAsync()
+    {
+        order.temporaryOrder_id=1;
+        order.commodity_id = 1;
+        order.time = new DateTime(2022,6,18,11,11,11);
+        order.count=2;
+        order.total_prince = 50;
+        data.Add(order);
+        data.Add(order);
+        data.Add(order);
+    }
+}

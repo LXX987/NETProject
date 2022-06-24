@@ -1,0 +1,98 @@
+﻿@page "/register"
+@layout LoginLayout
+@using System.Net.Http
+@using BlazorApp.Service
+@using BlazorApp.Data
+@using System.Net.Http.Json
+@using System.Text
+@using System.Text.Json
+@using System.Threading.Tasks
+@inject HttpClient Http
+@inject UserApiClient UserService
+@inject UserApiService userApiService
+<PageTitle>Counter</PageTitle>
+
+<div class="body">
+    <p class="title">注册</p>
+    <div class="name">
+        <Row>
+            <Col Span="4"><p class="content">邮箱：</p></Col>
+            <Col Span="20">
+                <Input Placeholder="请输入邮箱"  Size="@InputSize.Large" @bind-Value="@email">
+                    <Prefix>
+                        <Icon Type="user" />
+                    </Prefix>
+                </Input>
+            </Col>
+        </Row>
+        <Row>
+            <Col Span="4"><p class="content">密码：</p></Col>
+            <Col Span="20">
+                <InputPassword @bind-Value="@psw" Placeholder="请输入密码" Size="@InputSize.Large"/>
+            </Col>
+        </Row>
+        <Row>
+            <Col Span="4"><p class="content">身份：</p></Col>
+            <Col Span="20">
+                <RadioGroup @bind-Value="type" Size="large">
+                    <Radio RadioButton Value="@("0")">普通用户</Radio>
+                    <Radio RadioButton Value="@("1")">团长</Radio>
+                </RadioGroup>
+            </Col>
+        </Row>
+    </div>
+    <p class="content"><button class="btn btn-primary" @onclick="login">注册</button></p>
+</div>
+
+@code {
+    RenderFragment actionSetting(Func<Task> clickActionAsync, Dictionary<string, object> iconAttributes) =>
+        @<Icon @attributes="@iconAttributes" OnClick="@clickActionAsync" />;
+
+    private bool visible = false;
+    private InputPassword _inputPassword;
+    
+    Dictionary<string, object> hideAttributes  = new() {
+        ["Type"] = "eye-invisible",        
+        ["Style"] = ""
+    };
+
+    Dictionary<string, object> showAttributes  = new() {        
+        ["Type"] = "eye",        
+        ["Style"] = "color: #1890ff"
+    };
+
+    Dictionary<string, object> attributes = new() {
+        ["Class"] = "custom-password-icon",
+        ["Type"] = "eye-invisible",
+        ["Theme"] = "outline"
+    };
+
+    private async Task OnClick() 
+    {
+        Console.WriteLine("Custom icon clicked");
+        visible = !visible;
+        if (visible)
+            attributes = showAttributes;
+        else
+            attributes = hideAttributes;
+        await _inputPassword.Focus();
+    }
+    string email { get; set; }
+    string psw { get; set; }
+    string type = "0";
+    protected async Task login()
+    {
+        //var user1=new User1 { user_email=email, user_pwd=psw,userType=type};
+        //var user = JsonSerializer.Serialize(userType);
+        //var requestContent = new StringContent(user, Encoding.UTF8, "application/json");
+        //var response = await Http.PostAsync("https://localhost:7232/api/user/login", requestContent);
+        //response.EnsureSuccessStatusCode();
+        //var response = await Http.PostAsJsonAsync("https://localhost:7232/api/user/login",user1);
+        //await UserService.Login(email,psw,type);
+        //var content = await response.Content.ReadFromJsonAsync<User1>();
+        //Console.WriteLine(content);
+        //var user = new UserType();
+       // user=await userApiService.Login(userType);
+        //Console.WriteLine(content);
+    }
+}

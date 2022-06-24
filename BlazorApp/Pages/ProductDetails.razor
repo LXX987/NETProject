@@ -1,0 +1,50 @@
+﻿@page "/ProductDetails/{Id:int}"
+@using BlazorApp.Data
+
+@if (Product == null && ErrorMessage == null)
+{
+    <DisplaySpinner/>
+}
+else if (ErrorMessage != null)
+{
+    <DisplayError ErrorMessage="@ErrorMessage"></DisplayError>
+}
+else
+{
+    <h3 class="mb-5">商品详情</h3>
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <!--<img class="img-fluid" src="@Product.ImageURL">-->
+            <img class="img-fluid" src="https://img1.imgtp.com/2022/06/24/YZy9Rxfn.png">
+        </div>
+        <div class="col-md-6">
+            <h3>@Product.commodity_name</h3>
+            <p class="mb-4">剩余数量：@Product.total_count</p>
+            <p class="mb-4">
+                <b>
+                    @Product.item_price.ToString("C")
+                </b>
+            </p>
+            <div>
+                <button class="btn btn-success"><b>加入购物车</b></button>
+            </div>
+        </div>
+
+    </div>
+}
+
+@code{
+    [Parameter]
+    public int Id { get; set; }
+
+    Commodity Product = new Commodity();
+    public string ErrorMessage { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        Product.commodity_id = 1;
+        Product.commodity_name = "hhh";
+        Product.item_price = 10;
+        Product.total_count = 1000;
+
+    }
+}

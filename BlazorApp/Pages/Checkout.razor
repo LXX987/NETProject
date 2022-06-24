@@ -1,0 +1,52 @@
+﻿@page "/Checkout"
+@using BlazorApp.Data
+
+@if (ErrorMessage != null)
+{
+    <DisplayError ErrorMessage ="@ErrorMessage"></DisplayError>
+}
+else
+{
+    <h3 class="mb-5">Shopping Cart</h3>
+    <div class = "row mb-5">
+        <div class ="col-md-9">
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <img src="https://img1.imgtp.com/2022/06/24/YZy9Rxfn.png" width="300" class="img-thumbnail">
+                </div>
+                <div class = "col-md-8">
+                    <h5>@Product.commodity_name</h5>
+                    <p>单价: <b>@Product.item_price.ToString("C")</b></p>
+                    <p>数量: <b>@Product.total_count</b></p>
+                    <div>
+                        <button class="btn btn-danger sm"><i class="fa fa-trash"></i>支付中······</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <h5>总计</h5>
+            <div class="mt-2">
+                <div><b>@Product.item_price 元</b></div>
+                <a href="Checkout" class="btn btn-success">
+                    <span class="oi oi-credit-card"></span>&nbsp; 支付成功
+                </a>
+            </div>
+        </div>
+    </div>
+
+}
+
+
+@code {
+    Commodity Product = new Commodity();
+    public string ErrorMessage { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        Product.commodity_id = 1;
+        Product.commodity_name = "hhh";
+        Product.item_price = 10;
+        Product.total_count = 2;
+
+    }
+}

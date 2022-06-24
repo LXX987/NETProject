@@ -1,3 +1,27 @@
+/* _content/BlazorApp/Pages/DisplayProducts.razor.rz.scp.css */
+
+a[b-qwdw6p0k44] {
+    text-decoration: none;
+}
+
+    a:hover .card[b-qwdw6p0k44] {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+.card[b-qwdw6p0k44] {
+    transition: box-shadow 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+a:hover img[b-qwdw6p0k44] {
+    transform: scale(1.07);
+    transition: 0.5s ease-in-out;
+}
+
+img[b-qwdw6p0k44] {
+    transition: 0.5s ease-in-out;
+}
 /* _content/BlazorApp/Pages/Login.razor.rz.scp.css */
 .body[b-c956fem5qt] {
     background-color:ivory;
@@ -16,6 +40,31 @@
     width:200px;
 }
 .content[b-c956fem5qt] {
+    text-align: center;
+    /*width:300px;*/
+}
+/* _content/BlazorApp/Pages/Register.razor.rz.scp.css */
+.body[b-x3lxt1hyuu] {
+    background-color: ivory;
+    height: 750px;
+    padding-top: 200px;
+}
+
+.title[b-x3lxt1hyuu] {
+    font-size: 24px;
+    text-align: center;
+}
+
+.name[b-x3lxt1hyuu] {
+    padding-left: 500px;
+    padding-right: 500px;
+}
+
+.input[b-x3lxt1hyuu] {
+    width: 200px;
+}
+
+.content[b-x3lxt1hyuu] {
     text-align: center;
     /*width:300px;*/
 }

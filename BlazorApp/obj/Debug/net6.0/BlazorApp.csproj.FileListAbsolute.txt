@@ -72,3 +72,5 @@ D:\大学\大三下\.NET程序设计\项目\front1\NETProject\BlazorApp\bin\Debu
 D:\大学\大三下\.NET程序设计\项目\front1\NETProject\BlazorApp\bin\Debug\net6.0\Microsoft.AspNetCore.Components.DataAnnotations.Validation.dll
 D:\大学\大三下\.NET程序设计\项目\front1\NETProject\BlazorApp\bin\Debug\net6.0\OneOf.dll
 D:\大学\大三下\.NET程序设计\项目\front1\NETProject\BlazorApp\obj\Debug\net6.0\scopedcss\Pages\Login.razor.rz.scp.css
+D:\大学\大三下\.NET程序设计\项目\front1\NETProject\BlazorApp\obj\Debug\net6.0\scopedcss\Pages\DisplayProducts.razor.rz.scp.css
+D:\大学\大三下\.NET程序设计\项目\front1\NETProject\BlazorApp\obj\Debug\net6.0\scopedcss\Pages\Register.razor.rz.scp.css

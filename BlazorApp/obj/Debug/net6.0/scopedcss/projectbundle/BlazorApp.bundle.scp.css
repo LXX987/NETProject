@@ -1,3 +1,24 @@
+/* _content/BlazorApp/Pages/Login.razor.rz.scp.css */
+.body[b-c956fem5qt] {
+    background-color:ivory;
+    height:750px;
+    padding-top:200px;
+}
+.title[b-c956fem5qt] {
+    font-size:24px;
+    text-align:center;
+}
+.name[b-c956fem5qt] {
+    padding-left:500px;
+    padding-right:500px;
+}
+.input[b-c956fem5qt] {
+    width:200px;
+}
+.content[b-c956fem5qt] {
+    text-align: center;
+    /*width:300px;*/
+}
 /* _content/BlazorApp/Shared/MainLayout.razor.rz.scp.css */
 .page[b-3dsd3z3yec] {
     position: relative;

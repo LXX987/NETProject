@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "E:\\NET课程\\NETProject\\NETWebApp\\BlazorApp\\BlazorApp\\BlazorApp.csproj": {}
+    "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\BlazorApp.csproj": {}
   },
   "projects": {
-    "E:\\NET课程\\NETProject\\NETWebApp\\BlazorApp\\BlazorApp\\BlazorApp.csproj": {
+    "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\BlazorApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\NET课程\\NETProject\\NETWebApp\\BlazorApp\\BlazorApp\\BlazorApp.csproj",
+        "projectUniqueName": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\BlazorApp.csproj",
         "projectName": "BlazorApp",
-        "projectPath": "E:\\NET课程\\NETProject\\NETWebApp\\BlazorApp\\BlazorApp\\BlazorApp.csproj",
-        "packagesPath": "C:\\Users\\W\\.nuget\\packages\\",
-        "outputPath": "E:\\NET课程\\NETProject\\NETWebApp\\BlazorApp\\BlazorApp\\obj\\",
+        "projectPath": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\BlazorApp.csproj",
+        "packagesPath": "C:\\Users\\lwf\\.nuget\\packages\\",
+        "outputPath": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\W\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lwf\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +44,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "AntDesign": {
+              "target": "Package",
+              "version": "[0.11.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.1, )"

@@ -15,8 +15,8 @@ builder.Services.AddSingleton<WeatherForecastService>();
     //c.DefaultRequestHeaders.Add("Accept", "application/vnd.github.v3+json");
 });*/
 builder.Services.AddHttpClient<UserApiClient>(client => client.BaseAddress = new Uri("https://localhost:7232/"));
-
-
+builder.Services.AddHttpClient<UserApiService>(client => client.BaseAddress = new Uri("https://localhost:7232/"));
+builder.Services.AddAntDesign();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

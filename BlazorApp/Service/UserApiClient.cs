@@ -19,5 +19,17 @@ namespace BlazorApp.Service
 
             return result;
         }
+
+        /*public async ValueTask<UserType> Login(string email, string psw, string type)
+        {
+            UserType userType=new UserType { user_email=email, user_pwd=psw,userType=type};
+            Console.WriteLine(userType.user_email);
+            Console.WriteLine(userType.user_pwd);
+            Console.WriteLine(userType.userType);
+            var response = await _httpClient.PostAsJsonAsync<UserType>("/api/user/login", userType);
+            var result= response.Content.ReadFromJsonAsync<UserType>();
+            Console.WriteLine(result);
+            return result;
+        }*/
     }
 }

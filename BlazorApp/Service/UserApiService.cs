@@ -7,7 +7,11 @@ namespace BlazorApp.Service
     public class UserApiService: IUserApiService
     {
         private readonly IHttpClientFactory _clientFactory;
-
+        private readonly HttpClient _httpClient;
+        public UserApiService(HttpClient httpClient)
+        {
+            _httpClient = httpClient;
+        }
         public UserApiService(IHttpClientFactory clientFactory)
         {
             _clientFactory = clientFactory;
@@ -39,5 +43,18 @@ namespace BlazorApp.Service
 
             return result;
         }
+
+        /*public async Task<UserType> Login(UserType user)
+        {
+            var response = await _httpClient.PostAsJsonAsync($"/api/user/login", user);
+            if (response.IsSuccessStatusCode)
+            {
+                return await JsonSerializer.DeserializeAsync<UserType>(await response.Content.ReadAsStreamAsync());
+            }
+            else
+            {
+                throw new Exception("Gagal Tambah Data");
+            }
+        }*/
     }
 }

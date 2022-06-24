@@ -1,9 +1,13 @@
-﻿@page "/Products"
+﻿@page "/groupShop"
 @using BlazorApp.Data
-查询商品：<Search Placeholder="input search text" WrapperStyle="width: 200px;" ClassicSearchIcon />
+查询商家：<Search Placeholder="input search text" WrapperStyle="width: 200px;" ClassicSearchIcon />
 <Button Type="@ButtonType.Primary" Icon="@IconType.Outline.Search">Search</Button>
-<h3>商品列表</h3>
-
+<h3>商家详情</h3>
+<div>
+    <Avatar Size="64" Src="https://img1.imgtp.com/2022/06/24/YZy9Rxfn.png" />
+    <span class="mb-5">@shopName</span>
+</div>
+<Divider />
 <Row Gutter="2">
 @foreach(var item in list)
 {
@@ -14,7 +18,7 @@
                 <div class="card-body">
                     <div>
                         <Avatar Size="large" Src="https://img1.imgtp.com/2022/06/24/YZy9Rxfn.png" />
-                        <span>@name</span>
+                        <span>@shopName</span>
                     </div>
                     <h5 class="card-title mb-3">
                         @item.commodity_name
@@ -28,22 +32,21 @@
             </div>
         </a>
 
-    </div>
-                    
+    </div>            
 }
 </Row>
 @code {
     List<Commodity> list = new List<Commodity>();
     //private Commodity[]? list;
     Commodity commodity = new Commodity();
-    string name = "小店";
+    string shopName = "小店";
     protected override async Task OnInitializedAsync()
     {
         commodity.commodity_id=1;
         commodity.commodity_name = "hhh";
         commodity.item_price = 10;
-        commodity.start_time = new DateTime(2022, 6, 18, 11, 0, 0);
-        commodity.end_time = new DateTime(2022, 6, 19, 23, 0, 0);
+        list.Add(commodity);
+        list.Add(commodity);
         list.Add(commodity);
         list.Add(commodity);
         list.Add(commodity);

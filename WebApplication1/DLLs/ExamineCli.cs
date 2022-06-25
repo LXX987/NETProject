@@ -6,13 +6,9 @@ using System.Runtime.InteropServices;
 
 namespace WebApplication1.DLLs
 {
-    public class ADDdll
+    public class ExamineCli
     {
-        [DllImport("Dll1.dll", EntryPoint = "myAdd", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
-        public static extern int myAdd(int a, int b);
-
         [DllImport("CliDLL.dll", EntryPoint = "ExamineMailCli", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
         public static extern bool ExamineMailCli(string email);
-
     }
 }

@@ -30,9 +30,16 @@ namespace WebApplication1.Controllers
         }
 
         [HttpGet]
-        public int ADDtest()
+        public bool ADDtest(string email)
         {
-            return ADDdll.myAdd(3,5);
+            return ExamineCli.ExamineMailCli(email);
+        }
+        [HttpGet]
+        public int ADDtest1()
+        {
+            COMdll cOMdll = new COMdll();
+            cOMdll.comdll();
+            return ADDdll.myAdd(3, 5);
         }
     }
 }

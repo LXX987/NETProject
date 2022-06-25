@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
+using System.Text.RegularExpressions;
 
 namespace WebApplication1.Controllers
 {
@@ -186,6 +187,11 @@ namespace WebApplication1.Controllers
                         where d.user_id == user_id
                         select d;
             return query;
+        }
+
+        private bool examineEmail(string email)
+        {
+            return Regex.IsMatch(email, "^\\s*([A-Za-z0-9_-]+(\\.\\w+)*@(\\w+\\.)+\\w{2,5})\\s*$");
         }
     }
 }

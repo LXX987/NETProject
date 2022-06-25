@@ -1,6 +1,9 @@
 ﻿@page "/shopCenter"
 @layout ShopLayout
 @using BlazorApp.Data
+@using BlazorApp.Service
+@inject NavigationManager NavigationManager
+@inject CommodityApiClient CommodityService
 <h3>ShopCenter</h3>
 <div>
     <Avatar Size="64" Src="https://img1.imgtp.com/2022/06/24/YZy9Rxfn.png" />
@@ -8,48 +11,47 @@
 </div>
 <Divider />
 <Row Gutter="2">
-@foreach(var item in list)
-{
-    <div class="col-md-3 mb-2">
-        <a href="/shopProduct/@item.commodity_id">
-            <div class="card">
-                <img class="img-thumbnail" src="https://img1.imgtp.com/2022/06/24/YZy9Rxfn.png" >
-                <div class="card-body">
-                    <div>
-                        <Avatar Size="large" Src="https://img1.imgtp.com/2022/06/24/YZy9Rxfn.png" />
-                        <span>@shopName</span>
+     @if (list == null)
+    {
+        <p>暂无数据</p>
+    }
+    else
+    {
+        @foreach(BlazorApp.Data.commodityItem item in list)
+        {
+            <div class="col-md-3 mb-2">
+                <a href="/ProductDetails/@item.commodity_name">
+                    <div class="card">
+                        <img class="img-thumbnail" src="https://img1.imgtp.com/2022/06/24/YZy9Rxfn.png" >
+                        <div class="card-body">
+                            <div>
+                                <Avatar Size="large" Src="https://img1.imgtp.com/2022/06/24/YZy9Rxfn.png" />
+                                <span>@shopName</span>
+                            </div>
+                            <h5 class="card-title mb-3">
+                                @item.commodity_name
+                            </h5>
+                            <p class="txt">团购开始时间：@item.start_time</p>
+                            <p class="txt">团购结束时间：@item.end_time</p>
+                            <p class="card-text">
+                                <b>@item.item_price.ToString("C")</b>
+                            </p>
+                        </div>
                     </div>
-                    <h5 class="card-title mb-3">
-                        @item.commodity_name
-                    </h5>
-                    <p class="txt">团购开始时间：@item.start_time</p>
-                    <p class="txt">团购结束时间：@item.end_time</p>
-                    <p class="card-text">
-                        <b>@item.item_price.ToString("C")</b>
-                    </p>
-                </div>
-            </div>
-        </a>
+                </a>
 
-    </div>            
-}
+            </div>
+                    
+        }
+    }
 </Row>
 @code {
-    List<Commodity> list = new List<Commodity>();
+    private commodityItem[]? list;
     //private Commodity[]? list;
-    Commodity commodity = new Commodity();
+    //Commodity commodity = new Commodity();
     string shopName = "小店";
     protected override async Task OnInitializedAsync()
     {
-        commodity.commodity_id=1;
-        commodity.commodity_name = "hhh";
-        commodity.item_price = 10;
-        commodity.start_time = new DateTime(2022, 6, 18, 11, 0, 0);
-        commodity.end_time = new DateTime(2022, 6, 19, 23, 0, 0);
-        list.Add(commodity);
-        list.Add(commodity);
-        list.Add(commodity);
-        list.Add(commodity);
-        list.Add(commodity);
+        list = await CommodityService.AllCommodity();
     }
 }

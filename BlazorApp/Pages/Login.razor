@@ -96,7 +96,7 @@
 
     [Inject] public MessageService MsgSvr { get; set; }
     [Inject] public AuthenticationStateProvider AuthProvider { get; set; }
- 
+
     UserDto model = new UserDto();
     bool isLoading;
 
@@ -104,21 +104,28 @@
     {
         isLoading = true;
         User user=new User();
-            user.user_email = email;
-            user.user_pwd = psw;
-            user.userType = type;
-            user.userName = "";
- 
+        user.user_email = email;
+        user.user_pwd = psw;
+        user.userType = type;
+        user.userName = "";
+
         var httpResponse = await Http.PostAsJsonAsync("https://localhost:7232/api/user/login", user);
         UserDto result = await httpResponse.Content.ReadFromJsonAsync<UserDto>();
- 
+
         if (string.IsNullOrWhiteSpace(result?.Token) == false )
         {
             MsgSvr.Success($"登录成功");
             await sessionStorage.SetItemAsync("token", result?.Token);
             //Http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result?.Token);
             //((AuthProvider)AuthProvider).MarkUserAsAuthenticated(result);
-            NavigationManager.NavigateTo("Products");
+            if (type == "0")
+            {
+                NavigationManager.NavigateTo("Products");
+            }
+            else
+            {
+                NavigationManager.NavigateTo("shopCenter");
+            }
         }
         else
         {

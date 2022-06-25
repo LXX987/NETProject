@@ -1,5 +1,9 @@
 ﻿@page "/ProductDetails/{Id:int}"
 @using BlazorApp.Data
+@using BlazorApp.Service
+@inject CommodityApiClient CommodityService
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
+@inject NavigationManager NavigationManager
 <div>
     <Avatar Size="64" Src="https://img1.imgtp.com/2022/06/24/YZy9Rxfn.png" />
     <span>@shopName</span>
@@ -47,16 +51,17 @@ else
     public int Id { get; set; }
 
     Commodity Product = new Commodity();
+    [Inject] public MessageService MsgSvr { get; set; }
     public string ErrorMessage { get; set; }
     string shopName = "小店";
     protected override async Task OnInitializedAsync()
     {
-        Product.commodity_id = 1;
-        Product.commodity_name = "hhh";
-        Product.item_price = 10;
-        Product.total_count = 1000;
-        Product.start_time = new DateTime(2022, 6, 18, 11, 0, 0);
-        Product.end_time = new DateTime(2022, 6, 19, 23, 0, 0);
+        Product.commodity_id = 3;
+        Product.commodity_name = "可乐";
+        Product.item_price = 2;
+        Product.total_count = 28;
+        Product.start_time = new DateTime(2022, 6, 20, 15, 17, 29);
+        Product.end_time = new DateTime(2022, 6, 28, 15, 17, 29);
     }
     private int currentCount = 0;
 
@@ -68,5 +73,28 @@ else
     private void ToZore()
     {
         currentCount = 0;
+    }
+    protected async Task Purchase()
+    {
+        if(currentCount==0)
+        {
+            MsgSvr.Error($"没有选择购买数量！");
+        }
+        else
+        {
+            var token = await sessionStorage.GetItemAsync<string>("token");
+            OrderStr test = await CommodityService.Purchase(token,"可乐",currentCount);
+            if (test != null)
+            {
+                MsgSvr.Success($"购买中");
+                NavigationManager.NavigateTo("Checkout/" + test.commodity_id+"/"+test.count);
+                //NavigationManager.NavigateTo("Checkout/"+test.temporaryOrder_id+"/薯片/"+test.total_prince+"/"+test.count);
+            }
+            else
+            {
+                MsgSvr.Error($"购买失败！");
+            }
+        }
+        
     }
 }

@@ -60,5 +60,24 @@ namespace BlazorApp.Service
 
             return result;
         }
+
+        public async Task<int> addProduct(int price, int num,string name)
+        {
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIyIiwiaWF0IjoiMTY1NjE1NTc5OSIsIm5iZiI6IjE2NTYxNTU3OTkiLCJleHAiOiIxNjU2MjQyMTk5IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9leHBpcmF0aW9uIjoiMjAyMi82LzI2IDE5OjE2OjM5IiwiaXNzIjoiand0SXNzdWVyIiwiYXVkIjoiand0QXVkaWVuY2UifQ.RJr3cZEcM-dZhcF12TNGcTp2ytj0oyAwVcFvofG8wD0");
+            Commodity commodity = new Commodity();
+            //commodityItem commodity = new commodityItem();
+            commodity.commodity_id = 4;
+            commodity.user_id = 2;
+            string str = "矿泉水";
+            commodity.commodity_name = name;
+            commodity.item_price = 3;
+            commodity.total_count = 500;
+            commodity.start_time = new DateTime(2022, 6, 25, 11, 0, 0);
+            commodity.end_time = new DateTime(2022, 6, 26, 11, 0, 0);
+            var result = await _httpClient.PostAsJsonAsync("/api/commodity/postCommodity", commodity);
+            var stringResponse = await result.Content.ReadAsStringAsync();// 靠这个
+            Console.WriteLine(stringResponse);
+            return 0;
+        }
     }
 }

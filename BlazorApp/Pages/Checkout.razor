@@ -1,6 +1,8 @@
-﻿@page "/Checkout"
+﻿@page "/Checkout/{temporaryOrder_id:int}/{num:int}"
 @using BlazorApp.Data
-
+@using BlazorApp.Service
+@inject NavigationManager NavigationManager
+@inject CommodityApiClient CommodityService
 @if (ErrorMessage != null)
 {
     <DisplayError ErrorMessage ="@ErrorMessage"></DisplayError>
@@ -27,7 +29,7 @@ else
         <div class="col-md-3">
             <h5>总计</h5>
             <div class="mt-2">
-                <div><b>@Product.item_price 元</b></div>
+                <div><b>@total_poice 元</b></div>
                 <a href="Checkout" class="btn btn-success">
                     <span class="oi oi-credit-card"></span>&nbsp; 支付成功
                 </a>
@@ -39,14 +41,34 @@ else
 
 
 @code {
+    [Parameter]
+    public int temporaryOrder_id { get; set; }
+    /*[Parameter]
+    public string commodity_name { get; set; }
+    [Parameter]
+    public int price { get; set; }*/
+    [Parameter]
+    public int num { get; set; }
+
     Commodity Product = new Commodity();
     public string ErrorMessage { get; set; }
+    public int total_poice { get; set; }
     protected override async Task OnInitializedAsync()
     {
-        Product.commodity_id = 1;
-        Product.commodity_name = "hhh";
-        Product.item_price = 10;
-        Product.total_count = 2;
+        //Product.commodity_id = 1;
+        //Product.commodity_name = commodity_name;
+        //total_poice= price;
+        //Product.item_price = price/num;
 
+        commodityItem Product1= await CommodityService.OrderCommodity(temporaryOrder_id);
+        Product.total_count = num;
+        total_poice = num * Product1.item_price;
+        Product.item_price=Product1.item_price;
+        Product.commodity_name = Product1.commodity_name;
+    }
+    public void success()
+    {
+        Console.WriteLine("temporaryOrder_id" + temporaryOrder_id);
+        NavigationManager.NavigateTo("Order/"+temporaryOrder_id+"/"+num);
     }
 }

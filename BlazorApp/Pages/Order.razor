@@ -1,6 +1,8 @@
-﻿@page "/Order/{Id:int}"
+﻿@page "/Order/{Id:int}/{num:int}"
 @using BlazorApp.Data
-
+@using BlazorApp.Service
+@inject NavigationManager NavigationManager
+@inject CommodityApiClient CommodityService
 <h3 class="mb-5">订单</h3>
 <div class="row">
     <div class="col-md-6">
@@ -22,7 +24,7 @@
                 </tr>
                 <tr>
                     <td><b>Total</b></td>
-                    <td><b>@Product.item_price.ToString("C")</b></td>
+                    <td><b>@total_poice.ToString("C")</b></td>
                 </tr>
             </tbody>
         </table>
@@ -32,14 +34,19 @@
 @code {
     [Parameter]
     public int Id { get; set; }
+    [Parameter]
+    public int num { get; set; }
 
+    public int total_poice { get; set; }
     Commodity Product = new Commodity();
     protected override async Task OnInitializedAsync()
     {
-        Product.commodity_id = 1;
-        Product.commodity_name = "hhh";
-        Product.item_price = 10;
-        Product.total_count = 1;
-
+        //Product.commodity_id = 1;
+        //Product.commodity_name = "hhh";
+        //Product.item_price = 10;
+       // Product.total_count = 1;
+        commodityItem Product1= await CommodityService.OrderCommodity(Id);
+        Product.total_count = num;
+        total_poice = num * Product1.item_price;
     }
 }

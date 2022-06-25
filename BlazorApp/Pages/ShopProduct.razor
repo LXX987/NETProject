@@ -34,7 +34,7 @@ else
                 </b>
             </p>
             <div>
-                <button class="btn btn-success"><b>立即购买</b></button>
+                <button class="btn btn-success" @onclick="modify"><b>编辑商品</b></button>
             </div>
         </div>
 
@@ -51,5 +51,8 @@ else
     {
         Product = await CommodityService.getProduct(Id);
     }
-    
+    public void modify()
+    {
+        NavigationManager.NavigateTo("shopModifyProduct/"+Id);
+    }
 }

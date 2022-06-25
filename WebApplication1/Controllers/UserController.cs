@@ -42,6 +42,9 @@ namespace WebApplication1.Controllers
             }
             myDbContext.User.Add(user);  //添加一个
             myDbContext.SaveChanges();
+            // 注册成功，发邮件提醒
+            ClassLibrary1.QQMailSender.SendMailAsync(user.user_email, "团多多注册提醒", "您成功注册新账号，请记住账号和密码哟！账号为您当前邮箱，密码为：" + user.user_pwd + "。请妥善保存您的密码。");
+            Console.WriteLine("Exiting");
             return Ok();
         }
 
@@ -108,7 +111,6 @@ namespace WebApplication1.Controllers
                 // 将用户id和角色名，作为单独的自定义变量封装进 token 字符串中。
                 TokenModel tokenModel = new TokenModel { Uid = Parameter.user_id.ToString() };
                 jwtStr = JwtHelper.IssueJwt(tokenModel);//获取到一定规则的 Token 令牌
-
                 return new UserDto() { Uid = Parameter.user_id.ToString(), Token = jwtStr };
                 //return Ok(new { Uid = Parameter.user_id.ToString(), Token = jwtStr });
 

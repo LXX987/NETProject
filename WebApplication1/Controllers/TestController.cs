@@ -32,7 +32,11 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public bool ADDtest(string email)
         {
-            return ExamineCli.ExamineMailCli(email);
+            /*return ExamineCli.ExamineMailCli(email);*/
+            /*QQMailSender.SendMailAsync(message, title, content);*/
+            ClassLibrary1.QQMailSender.SendMailAsync("luo1391938@163.com", "团多多注册提醒", "您成功注册新账号，请记住账号和密码哟！");
+            Console.WriteLine("Exiting");
+            return true;
         }
         [HttpGet]
         public int ADDtest1()

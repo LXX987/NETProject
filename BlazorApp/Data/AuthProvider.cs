@@ -4,7 +4,7 @@ using System.Security.Claims;
 
 namespace BlazorApp.Data
 {
-    public class AuthProvider : AuthenticationStateProvider
+    /*public class AuthProvider : AuthenticationStateProvider
     {
         private readonly HttpClient HttpClient;
         public string Uid { get; set; }
@@ -66,7 +66,7 @@ namespace BlazorApp.Data
             var anonymousUser = new ClaimsPrincipal(new ClaimsIdentity());
             var authState = Task.FromResult(new AuthenticationState(anonymousUser));
             NotifyAuthenticationStateChanged(authState);
-        }*/
+        }
 
-    }
+    }*/
 }

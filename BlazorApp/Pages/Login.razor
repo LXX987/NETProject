@@ -10,6 +10,7 @@
 @inject HttpClient Http
 @inject UserApiClient UserService
 @inject Blazored.SessionStorage.ISessionStorageService sessionStorage
+@inject NavigationManager NavigationManager
 <PageTitle>Counter</PageTitle>
 
 <div class="body">
@@ -42,6 +43,7 @@
         </Row>
     </div>
     <p class="content"><button class="btn btn-primary" @onclick="login">登录</button></p>
+    <p class="content"><a href="/register">没有账号？点击注册</a></p>
     
 <CascadingAuthenticationState>
 
@@ -115,7 +117,8 @@
             MsgSvr.Success($"登录成功");
             await sessionStorage.SetItemAsync("token", result?.Token);
             //Http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result?.Token);
-            ((AuthProvider)AuthProvider).MarkUserAsAuthenticated(result);
+            //((AuthProvider)AuthProvider).MarkUserAsAuthenticated(result);
+            NavigationManager.NavigateTo("Products");
         }
         else
         {
@@ -123,18 +126,5 @@
         }
         isLoading = false;
        InvokeAsync( StateHasChanged);
-        //test = await UserService.login(email, psw, type);
-        //var user1=new User1 { user_email=email, user_pwd=psw,userType=type};
-        //var user = JsonSerializer.Serialize(userType);
-        //var requestContent = new StringContent(user, Encoding.UTF8, "application/json");
-        //var response = await Http.PostAsync("https://localhost:7232/api/user/login", requestContent);
-        //response.EnsureSuccessStatusCode();
-        //var response = await Http.PostAsJsonAsync("https://localhost:7232/api/user/login",user1);
-        //await UserService.Login(email,psw,type);
-        //var content = await response.Content.ReadFromJsonAsync<User1>();
-        //Console.WriteLine(content);
-        //var user = new UserType();
-       // user=await userApiService.Login(userType);
-        //Console.WriteLine(content);
     }
 }

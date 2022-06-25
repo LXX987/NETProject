@@ -18,7 +18,7 @@
     <Col Span="12">
 <div>
     <Avatar Size="64" Src="https://img1.imgtp.com/2022/06/24/YZy9Rxfn.png" />
-    <span>@name</span>
+    <span>@user.userName</span>
 </div>
     </Col>
     <Col Span="12">
@@ -47,7 +47,7 @@
         }
         else
         {
-            @foreach(var item in data)
+            @foreach(BlazorApp.Data.OrderStr item in data)
             {
                 <tr>
                     <td>@item.temporaryOrder_id</td>
@@ -64,8 +64,9 @@
     </tbody>
 </table>
 @code {
-    private TemporaryOrder[]? data ;
-    //List<TemporaryOrder> data = new List<TemporaryOrder>();
+    private OrderStr[]? data ;
+    //IQueryable<TemporaryOrder> data;
+    //List<OrderStr> data = new List<OrderStr>();
     TemporaryOrder order = new TemporaryOrder();
     private User user = new User();
     string name = "张三";

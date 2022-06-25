@@ -8,121 +8,121 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BlazorApp
 build_property.RootNamespace = BlazorApp
-build_property.ProjectDir = D:\大学\大三下\.NET程序设计\项目\front1\NETProject\BlazorApp\
+build_property.ProjectDir = D:\大学\大三下\.NET程序设计\项目\front\NETProject\BlazorApp\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\大学\大三下\.NET程序设计\项目\front1\NETProject\BlazorApp
+build_property.MSBuildProjectDirectory = D:\大学\大三下\.NET程序设计\项目\front\NETProject\BlazorApp
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/App.razor]
+[D:/大学/大三下/.NET程序设计/项目/front/NETProject/BlazorApp/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/Pages/CallWebAPI.razor]
+[D:/大学/大三下/.NET程序设计/项目/front/NETProject/BlazorApp/Pages/CallWebAPI.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FsbFdlYkFQSS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/Pages/Checkout.razor]
+[D:/大学/大三下/.NET程序设计/项目/front/NETProject/BlazorApp/Pages/Checkout.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hlY2tvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/Pages/Counter.razor]
+[D:/大学/大三下/.NET程序设计/项目/front/NETProject/BlazorApp/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/Pages/FetchData.razor]
+[D:/大学/大三下/.NET程序设计/项目/front/NETProject/BlazorApp/Pages/FetchData.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/Pages/Index.razor]
+[D:/大学/大三下/.NET程序设计/项目/front/NETProject/BlazorApp/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/Pages/Order.razor]
+[D:/大学/大三下/.NET程序设计/项目/front/NETProject/BlazorApp/Pages/Order.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/Pages/OrderList.razor]
+[D:/大学/大三下/.NET程序设计/项目/front/NETProject/BlazorApp/Pages/OrderList.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJMaXN0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/Pages/ProductDetails.razor]
+[D:/大学/大三下/.NET程序设计/项目/front/NETProject/BlazorApp/Pages/ProductDetails.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdERldGFpbHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/Pages/ShopAddProduct.razor]
+[D:/大学/大三下/.NET程序设计/项目/front/NETProject/BlazorApp/Pages/ShopAddProduct.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvcEFkZFByb2R1Y3QucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/Pages/ShopCenter.razor]
+[D:/大学/大三下/.NET程序设计/项目/front/NETProject/BlazorApp/Pages/ShopCenter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvcENlbnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/Pages/ShopModifyProduct.razor]
+[D:/大学/大三下/.NET程序设计/项目/front/NETProject/BlazorApp/Pages/ShopModifyProduct.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvcE1vZGlmeVByb2R1Y3QucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/Pages/ShopOrder.razor]
+[D:/大学/大三下/.NET程序设计/项目/front/NETProject/BlazorApp/Pages/ShopOrder.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvcE9yZGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/Pages/ShopProduct.razor]
+[D:/大学/大三下/.NET程序设计/项目/front/NETProject/BlazorApp/Pages/ShopProduct.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvcFByb2R1Y3QucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/Shared/LoginLayout.razor]
+[D:/大学/大三下/.NET程序设计/项目/front/NETProject/BlazorApp/Shared/LoginLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExvZ2luTGF5b3V0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/Shared/SurveyPrompt.razor]
+[D:/大学/大三下/.NET程序设计/项目/front/NETProject/BlazorApp/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/_Imports.razor]
+[D:/大学/大三下/.NET程序设计/项目/front/NETProject/BlazorApp/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/Pages/DisplayProducts.razor]
+[D:/大学/大三下/.NET程序设计/项目/front/NETProject/BlazorApp/Pages/DisplayProducts.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGlzcGxheVByb2R1Y3RzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-qwdw6p0k44
 
-[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/Pages/GroupShop.razor]
+[D:/大学/大三下/.NET程序设计/项目/front/NETProject/BlazorApp/Pages/GroupShop.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR3JvdXBTaG9wLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-h31eee4x8b
 
-[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/Pages/Login.razor]
+[D:/大学/大三下/.NET程序设计/项目/front/NETProject/BlazorApp/Pages/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-c956fem5qt
 
-[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/Pages/Register.razor]
+[D:/大学/大三下/.NET程序设计/项目/front/NETProject/BlazorApp/Pages/Register.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-x3lxt1hyuu
 
-[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/Shared/MainLayout.razor]
+[D:/大学/大三下/.NET程序设计/项目/front/NETProject/BlazorApp/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-3dsd3z3yec
 
-[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/Shared/NavMenu.razor]
+[D:/大学/大三下/.NET程序设计/项目/front/NETProject/BlazorApp/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-7cxxmz0cwl
 
-[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/Shared/ShopLayout.razor]
+[D:/大学/大三下/.NET程序设计/项目/front/NETProject/BlazorApp/Shared/ShopLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFNob3BMYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-nbe3k2apme
 
-[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/Shared/ShopMenu.razor]
+[D:/大学/大三下/.NET程序设计/项目/front/NETProject/BlazorApp/Shared/ShopMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFNob3BNZW51LnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-1eokip59dz
 
-[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/Pages/Error.cshtml]
+[D:/大学/大三下/.NET程序设计/项目/front/NETProject/BlazorApp/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/Pages/_Host.cshtml]
+[D:/大学/大三下/.NET程序设计/项目/front/NETProject/BlazorApp/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/大学/大三下/.NET程序设计/项目/front1/NETProject/BlazorApp/Pages/_Layout.cshtml]
+[D:/大学/大三下/.NET程序设计/项目/front/NETProject/BlazorApp/Pages/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

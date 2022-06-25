@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8HfxHtEDJyjiSeqkVWidhKg4D2NSCQmpDErCvWdq/d7DpDlgWMRhaoh7cFs/BvYqlire1J82rth8AZ4e5wDiWQ==",
+  "dgSpecHash": "gHRbmvJfpGWo+zp8LJUe33LyHDc+tT49pV+8qWgJp0lhIsHMOiglSrHrsFIssgwbU5qXE63HD4qMGGZaUJCqag==",
   "success": true,
-  "projectFilePath": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\BlazorApp.csproj",
+  "projectFilePath": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\BlazorApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lwf\\.nuget\\packages\\antdesign\\0.11.0\\antdesign.0.11.0.nupkg.sha512",
     "C:\\Users\\lwf\\.nuget\\packages\\blazored.sessionstorage\\2.2.0\\blazored.sessionstorage.2.2.0.nupkg.sha512",

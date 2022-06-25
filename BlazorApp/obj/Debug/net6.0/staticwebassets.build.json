@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ORBQ8GnnADbqz/8iRNNP5iMVfpba5HDLodPWeitpwN4=",
+  "Hash": "sM6KIQXSKJlnJCOe8RW9Pp3M6jOOzouZpnOmgUDVK4w=",
   "Source": "BlazorApp",
   "BasePath": "_content/BlazorApp",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "BlazorApp\\wwwroot",
       "Source": "BlazorApp",
-      "ContentRoot": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "Pattern": "**"
     }
@@ -5542,10 +5542,10 @@
       "OriginalItemSpec": "C:\\Users\\lwf\\.nuget\\packages\\antdesign\\0.11.0\\staticwebassets\\less\\upload\\style\\rtl.less"
     },
     {
-      "Identity": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\obj\\Debug\\net6.0\\scopedcss\\bundle\\BlazorApp.styles.css",
+      "Identity": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\obj\\Debug\\net6.0\\scopedcss\\bundle\\BlazorApp.styles.css",
       "SourceId": "BlazorApp",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
+      "ContentRoot": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "BlazorApp.styles.css",
       "AssetKind": "All",
@@ -5556,13 +5556,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\obj\\Debug\\net6.0\\scopedcss\\bundle\\BlazorApp.styles.css"
+      "OriginalItemSpec": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\obj\\Debug\\net6.0\\scopedcss\\bundle\\BlazorApp.styles.css"
     },
     {
-      "Identity": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\BlazorApp.bundle.scp.css",
+      "Identity": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\BlazorApp.bundle.scp.css",
       "SourceId": "BlazorApp",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "BlazorApp.bundle.scp.css",
       "AssetKind": "All",
@@ -5573,13 +5573,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\BlazorApp.bundle.scp.css"
+      "OriginalItemSpec": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\BlazorApp.bundle.scp.css"
     },
     {
-      "Identity": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Identity": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "SourceId": "BlazorApp",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "css/bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -5593,10 +5593,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "BlazorApp",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "css/bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -5610,10 +5610,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "Identity": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "BlazorApp",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "css/open-iconic/font/css/open-iconic-bootstrap.min.css",
       "AssetKind": "All",
@@ -5627,10 +5627,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
     },
     {
-      "Identity": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "Identity": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "SourceId": "BlazorApp",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.eot",
       "AssetKind": "All",
@@ -5644,10 +5644,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
     },
     {
-      "Identity": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "Identity": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "SourceId": "BlazorApp",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.otf",
       "AssetKind": "All",
@@ -5661,10 +5661,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
     },
     {
-      "Identity": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "Identity": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "SourceId": "BlazorApp",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.svg",
       "AssetKind": "All",
@@ -5678,10 +5678,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
     },
     {
-      "Identity": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "Identity": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "SourceId": "BlazorApp",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.ttf",
       "AssetKind": "All",
@@ -5695,10 +5695,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
     },
     {
-      "Identity": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "Identity": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "SourceId": "BlazorApp",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.woff",
       "AssetKind": "All",
@@ -5712,10 +5712,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
-      "Identity": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "Identity": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "SourceId": "BlazorApp",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "css/open-iconic/FONT-LICENSE",
       "AssetKind": "All",
@@ -5729,10 +5729,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
-      "Identity": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "Identity": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "SourceId": "BlazorApp",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "css/open-iconic/ICON-LICENSE",
       "AssetKind": "All",
@@ -5746,10 +5746,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\ICON-LICENSE"
     },
     {
-      "Identity": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\wwwroot\\css\\open-iconic\\README.md",
+      "Identity": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\wwwroot\\css\\open-iconic\\README.md",
       "SourceId": "BlazorApp",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "css/open-iconic/README.md",
       "AssetKind": "All",
@@ -5763,10 +5763,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\README.md"
     },
     {
-      "Identity": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\wwwroot\\css\\site.css",
+      "Identity": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\wwwroot\\css\\site.css",
       "SourceId": "BlazorApp",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -5780,10 +5780,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\wwwroot\\favicon.ico",
+      "Identity": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\wwwroot\\favicon.ico",
       "SourceId": "BlazorApp",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\wwwroot\\",
+      "ContentRoot": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\wwwroot\\",
       "BasePath": "_content/BlazorApp",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",

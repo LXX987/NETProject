@@ -18,10 +18,8 @@ builder.Services.AddSingleton<WeatherForecastService>();
     //c.DefaultRequestHeaders.Add("Accept", "application/vnd.github.v3+json");
 });*/
 builder.Services.AddHttpClient<UserApiClient>(client => client.BaseAddress = new Uri("https://localhost:7232/"));
-builder.Services.AddHttpClient<UserApiService>(client => client.BaseAddress = new Uri("https://localhost:7232/"));
-builder.Services.AddHttpClient<AuthProvider>(client => client.BaseAddress = new Uri("https://localhost:7232/"));
+builder.Services.AddHttpClient<CommodityApiClient>(client => client.BaseAddress = new Uri("https://localhost:7232/"));
 builder.Services.AddAntDesign();
-builder.Services.AddScoped<AuthenticationStateProvider, AuthProvider>();
 builder.Services.AddBlazoredSessionStorage();
 builder.Services.AddAuthorizationCore(option =>
 {

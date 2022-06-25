@@ -9,7 +9,7 @@
 @using System.Threading.Tasks
 @inject HttpClient Http
 @inject UserApiClient UserService
-@inject UserApiService userApiService
+@inject NavigationManager NavigationManager
 <PageTitle>Counter</PageTitle>
 
 <div class="body">
@@ -32,6 +32,16 @@
             </Col>
         </Row>
         <Row>
+            <Col Span="4"><p class="content">昵称：</p></Col>
+            <Col Span="20">
+                <Input Placeholder="请输入昵称"  Size="@InputSize.Large" @bind-Value="@name">
+                    <Prefix>
+                        <Icon Type="user" />
+                    </Prefix>
+                </Input>
+            </Col>
+        </Row>
+        <Row>
             <Col Span="4"><p class="content">身份：</p></Col>
             <Col Span="20">
                 <RadioGroup @bind-Value="type" Size="large">
@@ -41,7 +51,7 @@
             </Col>
         </Row>
     </div>
-    <p class="content"><button class="btn btn-primary" @onclick="login">注册</button></p>
+    <p class="content"><button class="btn btn-primary" @onclick="register">注册</button></p>
 </div>
 
 @code {
@@ -79,20 +89,21 @@
     }
     string email { get; set; }
     string psw { get; set; }
+    string name { get; set; }
     string type = "0";
-    protected async Task login()
+    [Inject] public MessageService MsgSvr { get; set; }
+    protected async Task register()
     {
-        //var user1=new User1 { user_email=email, user_pwd=psw,userType=type};
-        //var user = JsonSerializer.Serialize(userType);
-        //var requestContent = new StringContent(user, Encoding.UTF8, "application/json");
-        //var response = await Http.PostAsync("https://localhost:7232/api/user/login", requestContent);
-        //response.EnsureSuccessStatusCode();
-        //var response = await Http.PostAsJsonAsync("https://localhost:7232/api/user/login",user1);
-        //await UserService.Login(email,psw,type);
-        //var content = await response.Content.ReadFromJsonAsync<User1>();
-        //Console.WriteLine(content);
-        //var user = new UserType();
-       // user=await userApiService.Login(userType);
-        //Console.WriteLine(content);
+        User user=new User();
+        user.user_email = email;
+        user.user_pwd = psw;
+        user.userType = type;
+        user.userName = name;
+ 
+        var httpResponse = await Http.PostAsJsonAsync("https://localhost:7232/api/user/insertOne", user);
+        var stringResponse = await httpResponse.Content.ReadAsStringAsync();// 靠这个
+        Console.WriteLine(stringResponse);
+        MsgSvr.Success($"注册成功");
+        NavigationManager.NavigateTo("");
     }
 }

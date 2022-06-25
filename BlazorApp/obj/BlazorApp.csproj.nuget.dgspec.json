@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\BlazorApp.csproj": {}
+    "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\BlazorApp.csproj": {}
   },
   "projects": {
-    "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\BlazorApp.csproj": {
+    "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\BlazorApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\BlazorApp.csproj",
+        "projectUniqueName": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\BlazorApp.csproj",
         "projectName": "BlazorApp",
-        "projectPath": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\BlazorApp.csproj",
+        "projectPath": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\BlazorApp.csproj",
         "packagesPath": "C:\\Users\\lwf\\.nuget\\packages\\",
-        "outputPath": "D:\\大学\\大三下\\.NET程序设计\\项目\\front1\\NETProject\\BlazorApp\\obj\\",
+        "outputPath": "D:\\大学\\大三下\\.NET程序设计\\项目\\front\\NETProject\\BlazorApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -10,6 +10,7 @@ using System.Text.Json;
 using System.Linq;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
+using System.Net.Http.Json;
 
 //写一个类型化的HttpClient，然后注册服务
 namespace BlazorApp.Service
@@ -50,7 +51,7 @@ namespace BlazorApp.Service
             Console.WriteLine(email);
             Console.WriteLine(psw);
             Console.WriteLine(type);
-            User user=new User();
+            User user = new User();
             user.user_email = email;
             user.user_pwd = psw;
             user.userType = type;
@@ -64,7 +65,7 @@ namespace BlazorApp.Service
             if (string.IsNullOrWhiteSpace(result?.Token) == false)
             {
                 Console.WriteLine("登录成功");
-                ((AuthProvider)AuthProvider).MarkUserAsAuthenticated(result);
+                //((AuthProvider)AuthProvider).MarkUserAsAuthenticated(result);
                 //AuthProvider authProvider = new AuthProvider(_httpClient);
                 //authProvider.MarkUserAsAuthenticated(result);
                 //(AuthProvider).MarkUserAsAuthenticated(result);
@@ -81,14 +82,20 @@ namespace BlazorApp.Service
         {
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var httpResponse = await _httpClient.GetFromJsonAsync<User>("/api/user/searchUser");
+            Console.WriteLine("name:" + httpResponse.userName);
             return httpResponse;
         }
 
-        public async Task<TemporaryOrder[]?> GetOrderList(string token)
+        public async Task<OrderStr[]?> GetOrderList(string token)
         {
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            var httpResponse = await _httpClient.GetFromJsonAsync<TemporaryOrder[]>("/api/user/searchUser");
-            return httpResponse;
+            var result = await _httpClient.GetFromJsonAsync<OrderStr[]>("/api/temportaryOrder/searchOne");
+
+            return result;
+            //var httpResponse = await _httpClient.PostAsJsonAsync("/api/temportaryOrder/searchOne", user);
+            //var stringResponse = await httpResponse.Content.ReadAsStringAsync();// 靠这个
+            //List<OrderStr> result = await httpResponse.Content.ReadFromJsonAsync<List<OrderStr>>();
+            //return result;
         }
     }
 }

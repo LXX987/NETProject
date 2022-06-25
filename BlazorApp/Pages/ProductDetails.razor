@@ -23,7 +23,30 @@ else
     <div class="row">
         <div class="col-md-6 mb-4">
             <!--<img class="img-fluid" src="@Product.ImageURL">-->
-            <img class="img-fluid" src="https://img1.imgtp.com/2022/06/24/YZy9Rxfn.png">
+            @if (@Product.commodity_id == 1)
+            {
+                <img class="img-fluid" src="https://img1.imgtp.com/2022/06/24/YZy9Rxfn.png">
+            }
+            else if(@Product.commodity_id == 2)
+            {
+                <img class="img-fluid" src="https://img1.imgtp.com/2022/06/25/QrWqCVsS.jpg">
+            }
+            else if(@Product.commodity_id == 3)
+            {
+                <img class="img-fluid" src="https://img1.imgtp.com/2022/06/25/lGouD7dD.jpg">
+            }
+            else if(@Product.commodity_id == 4)
+            {
+                <img class="img-fluid" src="https://img1.imgtp.com/2022/06/25/7J7P56k3.jpg">
+            }
+            else if(@Product.commodity_id == 4)
+            {
+                <img class="img-fluid" src="https://img1.imgtp.com/2022/06/25/4Ta04MVW.jpg">
+            }
+            else
+            {
+                <img class="img-fluid" src="@Product.ImageURL">
+            }
         </div>
         <div class="col-md-6">
             <h3>@Product.commodity_name</h3>
@@ -39,7 +62,7 @@ else
             <button class="btn btn-primary" @onclick="IncrementCount">+1</button>
             <button class="btn btn-primary" @onclick="ToZore">清零</button></p>
             <div>
-                <button class="btn btn-success"><b>立即购买</b></button>
+                <button class="btn btn-success" @onclick="Purchase"><b>立即购买</b></button>
             </div>
         </div>
 
@@ -53,15 +76,17 @@ else
     Commodity Product = new Commodity();
     [Inject] public MessageService MsgSvr { get; set; }
     public string ErrorMessage { get; set; }
-    string shopName = "小店";
+    string shopName = "卖家小罗";
     protected override async Task OnInitializedAsync()
     {
-        Product.commodity_id = 3;
+        /*Product.commodity_id = 3;
         Product.commodity_name = "可乐";
         Product.item_price = 2;
         Product.total_count = 28;
         Product.start_time = new DateTime(2022, 6, 20, 15, 17, 29);
-        Product.end_time = new DateTime(2022, 6, 28, 15, 17, 29);
+        Product.end_time = new DateTime(2022, 6, 28, 15, 17, 29);*/
+        Product = await CommodityService.getProduct(Id);
+
     }
     private int currentCount = 0;
 
@@ -83,7 +108,7 @@ else
         else
         {
             var token = await sessionStorage.GetItemAsync<string>("token");
-            OrderStr test = await CommodityService.Purchase(token,"可乐",currentCount);
+            OrderStr test = await CommodityService.Purchase(token,"Product.commodity_name",currentCount);
             if (test != null)
             {
                 MsgSvr.Success($"购买中");
@@ -97,4 +122,6 @@ else
         }
         
     }
+
+
 }

@@ -1,6 +1,13 @@
 ﻿@page "/shopOrder/{Id:int}"
 @layout ShopLayout
 @using BlazorApp.Data
+@using BlazorApp.Service
+@using System.ComponentModel
+@using AntDesign.TableModels
+@using System.Net.Http
+@inject HttpClient Http
+@inject UserApiClient UserService
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
 <h3>ShopOrder</h3>
 <h4 class="mb-2">订单列表</h4>
 <table class="table">
@@ -30,26 +37,14 @@
 @code {
     [Parameter]
     public int Id { get; set; }
-
-    List<TemporaryOrder> data = new List<TemporaryOrder>();
-    TemporaryOrder order = new TemporaryOrder();
+    private User user = new User();
+    private OrderStr[]? data ;
+    //List<TemporaryOrder> data = new List<TemporaryOrder>();
+    //TemporaryOrder order = new TemporaryOrder();
     protected override async Task OnInitializedAsync()
     {
-        order.temporaryOrder_id=1;
-        order.commodity_id = 1;
-        order.time = new DateTime(2022,6,18,11,11,11);
-        order.count=2;
-        order.total_prince = 50;
-        data.Add(order);
-        data.Add(order);
-        data.Add(order);
-        if(Id==0)
-        {
-            Console.WriteLine($"Id:{Id}");
-        }
-        else
-        {
-            Console.WriteLine($"Id:{Id}");
-        }
+        var token = await sessionStorage.GetItemAsync<string>("token");
+        user = await UserService.SearchUser(token);
+        data = await UserService.GetOrderList(token);
     }
 }

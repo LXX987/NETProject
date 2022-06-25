@@ -19,7 +19,26 @@
             <div class="col-md-3 mb-2">
                 <a href="/ProductDetails/@item.commodity_id">
                     <div class="card">
-                        <img class="img-thumbnail" src="https://img1.imgtp.com/2022/06/24/YZy9Rxfn.png" >
+                        @if (@item.commodity_id == 1)
+            {
+                <img class="img-fluid" src="https://img1.imgtp.com/2022/06/24/YZy9Rxfn.png">
+            }
+            else if(@item.commodity_id == 2)
+            {
+                <img class="img-fluid" src="https://img1.imgtp.com/2022/06/25/QrWqCVsS.jpg">
+            }
+            else if(@item.commodity_id == 3)
+            {
+                <img class="img-fluid" src="https://img1.imgtp.com/2022/06/25/lGouD7dD.jpg">
+            }
+            else if(@item.commodity_id == 4)
+            {
+                <img class="img-fluid" src="https://img1.imgtp.com/2022/06/25/7J7P56k3.jpg">
+            }
+            else if(@item.commodity_id == 4)
+            {
+                <img class="img-fluid" src="https://img1.imgtp.com/2022/06/25/4Ta04MVW.jpg">
+            }
                         <div class="card-body">
                             <div>
                                 <Avatar Size="large" Src="https://img1.imgtp.com/2022/06/24/YZy9Rxfn.png" />
@@ -47,7 +66,7 @@
     private commodityItem[]? list;
     //private Commodity[]? list;
     //Commodity commodity = new Commodity();
-    string name = "小店";
+    string name = "卖家小罗";
     protected override async Task OnInitializedAsync()
     {
         list = await CommodityService.AllCommodity();

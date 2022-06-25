@@ -1,7 +1,10 @@
 ﻿@page "/groupShop"
 @using BlazorApp.Data
-查询商家：<Search Placeholder="input search text" WrapperStyle="width: 200px;" ClassicSearchIcon />
-<Button Type="@ButtonType.Primary" Icon="@IconType.Outline.Search">Search</Button>
+@using BlazorApp.Service
+@inject NavigationManager NavigationManager
+@inject CommodityApiClient CommodityService
+查询商家：<Search Placeholder="input search text" WrapperStyle="width: 200px;" ClassicSearchIcon @bind-Value="shopName"/>
+<Button Type="@ButtonType.Primary" Icon="@IconType.Outline.Search" @onclick="search">Search</Button>
 <h3>商家详情</h3>
 <div>
     <Avatar Size="64" Src="https://img1.imgtp.com/2022/06/24/YZy9Rxfn.png" />
@@ -36,21 +39,15 @@
 }
 </Row>
 @code {
-    List<Commodity> list = new List<Commodity>();
+    private commodityItem[]? list;
+    //List<Commodity> list = new List<Commodity>();
     //private Commodity[]? list;
     Commodity commodity = new Commodity();
-    string shopName = "小店";
-    protected override async Task OnInitializedAsync()
+    string shopName = "卖家小罗";
+    User user = new User();
+    protected async Task search()
     {
-        commodity.commodity_id=1;
-        commodity.commodity_name = "hhh";
-        commodity.item_price = 10;
-        commodity.start_time = new DateTime(2022, 6, 18, 11, 0, 0);
-        commodity.end_time = new DateTime(2022, 6, 19, 23, 0, 0);
-        list.Add(commodity);
-        list.Add(commodity);
-        list.Add(commodity);
-        list.Add(commodity);
-        list.Add(commodity);
+        user = await CommodityService.getShop(shopName);
+        list = await CommodityService.AllCommodity();
     }
 }

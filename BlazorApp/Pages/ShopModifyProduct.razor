@@ -4,6 +4,10 @@
 @using System.ComponentModel.DataAnnotations;
 @using System.Text.Json;
 @using System.ComponentModel
+@using BlazorApp.Service
+@inject NavigationManager NavigationManager
+@inject CommodityApiClient CommodityService
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
 <h3>ShopModifyProduct</h3>
 <h3 class="mb-5">商品详情修改</h3>
     <div class="row">
@@ -68,8 +72,12 @@
         Console.WriteLine($"Failed:{JsonSerializer.Serialize(model)}");
     }
 
-    protected void addProduct()
+    protected async void addProduct()
     {
+        var token = await sessionStorage.GetItemAsync<string>("token");
+        string start = model.StartTime.ToString();
+        string end=model.EndTime.ToString();
+        int a = await CommodityService.addProduct(model.Price,model.Num,model.Name,start,end ,token);
         Console.WriteLine($"addProduct:{JsonSerializer.Serialize(model)}");
     }
 

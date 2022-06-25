@@ -1,6 +1,10 @@
 ﻿@page "/shopProduct/{Id:int}"
 @layout ShopLayout
 @using BlazorApp.Data
+@using BlazorApp.Service
+@inject CommodityApiClient CommodityService
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
+@inject NavigationManager NavigationManager
 <h3>ShopProduct</h3>
 <div>
     <Avatar Size="64" Src="https://img1.imgtp.com/2022/06/24/YZy9Rxfn.png" />
@@ -45,12 +49,7 @@ else
     string shopName = "小店";
     protected override async Task OnInitializedAsync()
     {
-        Product.commodity_id = 1;
-        Product.commodity_name = "hhh";
-        Product.item_price = 10;
-        Product.total_count = 1000;
-        Product.start_time = new DateTime(2022, 6, 18, 11, 0, 0);
-        Product.end_time = new DateTime(2022, 6, 19, 23, 0, 0);
+        Product = await CommodityService.getProduct(Id);
     }
     
 }

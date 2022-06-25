@@ -18,12 +18,12 @@
     <Col Span="12">
 <div>
     <Avatar Size="64" Src="https://img1.imgtp.com/2022/06/24/YZy9Rxfn.png" />
-    <span>@user.userName</span>
+    <span>小罗</span>
 </div>
     </Col>
     <Col Span="12">
-        <p>用户ID：@user.user_id</p>
-        <p>用户邮箱：@user.user_email</p>
+        <p>用户ID：1</p>
+        <p>用户邮箱：111@111.com</p>
     </Col>
 </Row>
 <Divider />
@@ -47,7 +47,7 @@
         }
         else
         {
-            @foreach(BlazorApp.Data.OrderStr item in data)
+            @foreach(var item in data)
             {
                 <tr>
                     <td>@item.temporaryOrder_id</td>
@@ -55,7 +55,7 @@
                     <td>@item.time</td>
                     <td>@item.count</td>
                     <td>@item.total_prince.ToString("C")</td>
-                    <td><a href="/Order/@item.temporaryOrder_id">查看订单详情</a></td>
+                    <td><a href="/Order/3/1">查看订单详情</a></td>
                 </tr>
             }
         }
@@ -66,30 +66,17 @@
 @code {
     private OrderStr[]? data ;
     //IQueryable<TemporaryOrder> data;
-    //List<OrderStr> data = new List<OrderStr>();
+    //List<TemporaryOrder> data = new List<TemporaryOrder>();
     TemporaryOrder order = new TemporaryOrder();
     private User user = new User();
-    string name = "张三";
-    /*protected override async Task OnInitializedAsync()
-        {
-        order.temporaryOrder_id=1;
-        order.commodity_id = 1;
-        order.time = new DateTime(2022,6,18,11,11,11);
-        order.count=2;
-        order.total_prince = 50;
-        data.Add(order);
-        data.Add(order);
-        data.Add(order);
-        var token = await sessionStorage.GetItemAsync<string>("token");
-        user = await UserService.SearchUser(token);
-    }*/
+    string name = "小罗";
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        order.temporaryOrder_id=1;
-        order.commodity_id = 1;
-        order.time = new DateTime(2022,6,18,11,11,11);
-        order.count=2;
-        order.total_prince = 50;
+        order.temporaryOrder_id=20;
+        order.commodity_id = 3;
+        order.time = new DateTime(2022,6,25,20,15,12);
+        order.count=1;
+        order.total_prince = 2;
         //data.Add(order);
         //data.Add(order);
         //data.Add(order);

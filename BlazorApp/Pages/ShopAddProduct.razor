@@ -7,6 +7,7 @@
 @using BlazorApp.Service
 @inject NavigationManager NavigationManager
 @inject CommodityApiClient CommodityService
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
 <h3>ShopAddProduct</h3>
 上传商品图片：
 <Upload Action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
@@ -72,7 +73,10 @@
 
     protected async void addProduct()
     {
-        int a = await CommodityService.addProduct(3,500,"卷纸");
+        var token = await sessionStorage.GetItemAsync<string>("token");
+        string start = model.StartTime.ToString();
+        string end=model.EndTime.ToString();
+        int a = await CommodityService.addProduct(model.Price,model.Num,model.Name,start,end ,token);
         Console.WriteLine($"addProduct:{JsonSerializer.Serialize(model)}");
     }
 

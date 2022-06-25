@@ -128,10 +128,6 @@ namespace WebApplication1.Controllers
             myDbContext.TemporaryOrder.Add(temporaryOrder);  //添加一个
             myDbContext.Commodity.Update(Parameter); // 更新商品属性
             myDbContext.SaveChanges();
-
-            COMdll cOMdll = new COMdll();
-            cOMdll.comOrderdll(temporaryOrder.temporaryOrder_id);
-
             return Ok(temporaryOrder);
 
         }
@@ -144,8 +140,18 @@ namespace WebApplication1.Controllers
 
         }
 
-        // 搜索商品
-        [HttpPost("commodity/searchCommodity")]
+        [HttpPost("commodity/confirm")]
+        public async Task<IActionResult> confirm()
+        {
+            Random rd = new Random();
+            int id = rd.Next();
+            COMdll cOMdll = new COMdll();
+            cOMdll.comOrderdll(id);
+            return Ok();
+        }
+
+            // 搜索商品
+            [HttpPost("commodity/searchCommodity")]
         public async Task<IActionResult> searchCommodity(Commodity commodity)
         {
             // 从commodity里面拿到商品名称

@@ -63,7 +63,7 @@ namespace WebApplication1.Controllers
         }
 
         // 查看某个用户的订单
-        [HttpPost("temportaryOrder/searchOne")]
+        [HttpGet("temportaryOrder/searchOne")]
         [Authorize]
         public async Task<List<TemporaryOrder>> searchOne()
         {
@@ -137,7 +137,7 @@ namespace WebApplication1.Controllers
         {
             // 需要商品id
             var CommodityItem = await TaskFindCommodity(temporaryOrder.commodity_id);
-            return Ok(new { CommodityItem });
+            return Ok(CommodityItem);
         }
 
         private async Task<Commodity> TaskFindCommodity(int commodity_id)

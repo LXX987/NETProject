@@ -33,8 +33,8 @@
     <Reference Include="ClassLibrary1">
       <HintPath>..\..\..\NETClassLibrary1\ClassLibrary1\ClassLibrary1\bin\Debug\ClassLibrary1.dll</HintPath>
     </Reference>
-    <Reference Include="Dll1">
-      <HintPath>bin\Debug\net6.0\Dll1.dll</HintPath>
+    <Reference Include="CliDLL">
+      <HintPath>..\..\..\NETProject\CliDLL\CliDLL\x64\Debug\CliDLL.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

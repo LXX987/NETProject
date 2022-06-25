@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using WebApplication1.Common;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;
+using WebApplication1.DLLs;
 
 namespace WebApplication1.Controllers
 {
@@ -127,6 +128,10 @@ namespace WebApplication1.Controllers
             myDbContext.TemporaryOrder.Add(temporaryOrder);  //添加一个
             myDbContext.Commodity.Update(Parameter); // 更新商品属性
             myDbContext.SaveChanges();
+
+            COMdll cOMdll = new COMdll();
+            cOMdll.comOrderdll(temporaryOrder.temporaryOrder_id);
+
             return Ok(temporaryOrder);
 
         }

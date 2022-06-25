@@ -1,7 +1,10 @@
 using BlazorApp.Data;
 using BlazorApp.Service;
+using Blazored.SessionStorage;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +19,14 @@ builder.Services.AddSingleton<WeatherForecastService>();
 });*/
 builder.Services.AddHttpClient<UserApiClient>(client => client.BaseAddress = new Uri("https://localhost:7232/"));
 builder.Services.AddHttpClient<UserApiService>(client => client.BaseAddress = new Uri("https://localhost:7232/"));
+builder.Services.AddHttpClient<AuthProvider>(client => client.BaseAddress = new Uri("https://localhost:7232/"));
 builder.Services.AddAntDesign();
+builder.Services.AddScoped<AuthenticationStateProvider, AuthProvider>();
+builder.Services.AddBlazoredSessionStorage();
+builder.Services.AddAuthorizationCore(option =>
+{
+    option.AddPolicy("Admin", policy => policy.RequireClaim("Admin"));
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

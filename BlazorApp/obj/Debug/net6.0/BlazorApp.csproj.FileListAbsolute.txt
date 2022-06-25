@@ -77,3 +77,9 @@ D:\大学\大三下\.NET程序设计\项目\front1\NETProject\BlazorApp\obj\Debu
 D:\大学\大三下\.NET程序设计\项目\front1\NETProject\BlazorApp\obj\Debug\net6.0\scopedcss\Pages\GroupShop.razor.rz.scp.css
 D:\大学\大三下\.NET程序设计\项目\front1\NETProject\BlazorApp\obj\Debug\net6.0\scopedcss\Shared\ShopLayout.razor.rz.scp.css
 D:\大学\大三下\.NET程序设计\项目\front1\NETProject\BlazorApp\obj\Debug\net6.0\scopedcss\Shared\ShopMenu.razor.rz.scp.css
+D:\大学\大三下\.NET程序设计\项目\front1\NETProject\BlazorApp\bin\Debug\net6.0\Microsoft.AspNetCore.Authorization.dll
+D:\大学\大三下\.NET程序设计\项目\front1\NETProject\BlazorApp\bin\Debug\net6.0\Microsoft.AspNetCore.Components.dll
+D:\大学\大三下\.NET程序设计\项目\front1\NETProject\BlazorApp\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Authorization.dll
+D:\大学\大三下\.NET程序设计\项目\front1\NETProject\BlazorApp\bin\Debug\net6.0\Microsoft.AspNetCore.Metadata.dll
+D:\大学\大三下\.NET程序设计\项目\front1\NETProject\BlazorApp\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\大学\大三下\.NET程序设计\项目\front1\NETProject\BlazorApp\bin\Debug\net6.0\Blazored.SessionStorage.dll

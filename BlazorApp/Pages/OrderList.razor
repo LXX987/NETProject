@@ -1,9 +1,19 @@
 ﻿@page "/OrderList"
 @using BlazorApp.Data
+@using BlazorApp.Service
 @using System.ComponentModel
 @using AntDesign.TableModels
+@using System.Net.Http
+@inject HttpClient Http
+@inject UserApiClient UserService
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
 
 <h3>OrderList</h3>
+<CascadingAuthenticationState>
+<AuthorizeView>
+    <p>You can only see this content if you're authenticated.</p>
+</AuthorizeView>
+</CascadingAuthenticationState>
 <Row>
     <Col Span="12">
 <div>
@@ -31,28 +41,36 @@
         </tr>
     </thead>
     <tbody>
-        @foreach(var item in data)
+        @if(data==null)
         {
-            <tr>
-                <td>@item.temporaryOrder_id</td>
-                <td>@item.commodity_id</td>
-                <td>@item.time</td>
-                <td>@item.count</td>
-                <td>@item.total_prince.ToString("C")</td>
-                <td><a href="/Order/@item.temporaryOrder_id">查看订单详情</a></td>
-            </tr>
+            <p>暂无数据</p>
         }
+        else
+        {
+            @foreach(var item in data)
+            {
+                <tr>
+                    <td>@item.temporaryOrder_id</td>
+                    <td>@item.commodity_id</td>
+                    <td>@item.time</td>
+                    <td>@item.count</td>
+                    <td>@item.total_prince.ToString("C")</td>
+                    <td><a href="/Order/@item.temporaryOrder_id">查看订单详情</a></td>
+                </tr>
+            }
+        }
+        
         
     </tbody>
 </table>
 @code {
-    //Order[] data = new Order[]
-    List<TemporaryOrder> data = new List<TemporaryOrder>();
+    private TemporaryOrder[]? data ;
+    //List<TemporaryOrder> data = new List<TemporaryOrder>();
     TemporaryOrder order = new TemporaryOrder();
-    User user = new User();
+    private User user = new User();
     string name = "张三";
-    protected override async Task OnInitializedAsync()
-    {
+    /*protected override async Task OnInitializedAsync()
+        {
         order.temporaryOrder_id=1;
         order.commodity_id = 1;
         order.time = new DateTime(2022,6,18,11,11,11);
@@ -61,7 +79,21 @@
         data.Add(order);
         data.Add(order);
         data.Add(order);
-        user.user_id = 1;
-        user.user_email = "111@111.com";
+        var token = await sessionStorage.GetItemAsync<string>("token");
+        user = await UserService.SearchUser(token);
+    }*/
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        order.temporaryOrder_id=1;
+        order.commodity_id = 1;
+        order.time = new DateTime(2022,6,18,11,11,11);
+        order.count=2;
+        order.total_prince = 50;
+        //data.Add(order);
+        //data.Add(order);
+        //data.Add(order);
+        var token = await sessionStorage.GetItemAsync<string>("token");
+        user = await UserService.SearchUser(token);
+        data = await UserService.GetOrderList(token);
     }
 }

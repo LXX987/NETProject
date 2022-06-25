@@ -65,7 +65,7 @@ namespace WebApplication1.Controllers
         // 查看某个用户的订单
         [HttpPost("temportaryOrder/searchOne")]
         [Authorize]
-        public async Task<IActionResult> searchOne()
+        public async Task<IQueryable<TemporaryOrder>> searchOne()
         {
             // 获取token user_id
             var token = HttpContext.GetTokenAsync("Bearer", "access_token");
@@ -78,7 +78,7 @@ namespace WebApplication1.Controllers
 
             // 查看该user_id的全部记录
             var Parameter = await TaskSearchUser(user_id);
-            return Ok(Parameter);
+            return Parameter;
         }
 
         private async Task<IQueryable<TemporaryOrder>> TaskSearchUser(int user_id)

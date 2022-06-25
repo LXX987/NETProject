@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authentication;
 using System.Threading.Tasks;
 using System.Threading;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace WebApplication1.Controllers
 {
@@ -79,23 +80,26 @@ namespace WebApplication1.Controllers
 
         //用户登录
         [HttpPost("user/login")]
-        public IActionResult Login(User user)
+        public async Task<UserDto> Login(User user)
         {
             string user_email = user.user_email;
             string user_pwd = user.user_pwd;
             string userType = user.userType;
-            var Parameter = myDbContext.User.FirstOrDefault(a => a.user_email == user_email);
+            var Parameter = await TaskSearchUserEmail(user_email);
             if (Parameter == null)
             {
-                return BadRequest(new { conut = -1, msg = "该邮箱未注册账号，未找到数据" });
+                return new UserDto() { Uid = "", Token = "" };
+                //return BadRequest(new { conut = -1, msg = "该邮箱未注册账号，未找到数据" });
             }
             if (user_pwd != Parameter.user_pwd)
             {
-                return BadRequest(new { conut = -1, msg = "密码错误" });
+                return new UserDto() { Uid = "", Token = "" };
+                //return BadRequest(new { conut = -1, msg = "密码错误" });
             }
             else if (userType != Parameter.userType)
             {
-                return BadRequest(new { conut = -1, msg = "用户类型错误" });
+                return new UserDto() { Uid = "", Token = "" };
+                //return BadRequest(new { conut = -1, msg = "用户类型错误" });
             }
             else
             {
@@ -104,15 +108,39 @@ namespace WebApplication1.Controllers
                 TokenModel tokenModel = new TokenModel { Uid = Parameter.user_id.ToString() };
                 jwtStr = JwtHelper.IssueJwt(tokenModel);//获取到一定规则的 Token 令牌
 
-                return Ok(new { data = Parameter, msg = "登录成功" , token= jwtStr });
+                return new UserDto() { Uid = Parameter.user_id.ToString(), Token = jwtStr };
+                //return Ok(new { Uid = Parameter.user_id.ToString(), Token = jwtStr });
 
+            }
+        }
+
+        private async Task<User> TaskSearchUserEmail(string user_email)
+        {
+            // return string.Format("task 执行线程:{0}", Thread.CurrentThread.ManagedThreadId);
+            var result = await myDbContext.Set<User>().FirstOrDefaultAsync(a => a.user_email == user_email);
+            return result;
+        }
+
+        [HttpGet("user/GetUser")]
+        public UserDto GetUser()
+        {
+            if (User.Identity.IsAuthenticated)//如果Token有效
+            {
+                var id = User.Claims.First(x => x.Type == ClaimTypes.Name).Value;//从Token中拿出用户ID
+                TokenModel tokenModel = new TokenModel { Uid = id };
+                var jwtStr = JwtHelper.IssueJwt(tokenModel);//获取到一定规则的 Token 令牌 
+                return new UserDto() { Uid = id, Token = jwtStr };
+            }
+            else
+            {
+                return new UserDto() { Uid = null, Token = null };
             }
         }
 
         //获取一个用户的数据
         [HttpGet("user/searchUser")]
         [Authorize]
-        public IActionResult SearchUser()
+        public async Task<User> SearchUser()
         {
             var token=HttpContext.GetTokenAsync("Bearer", "access_token");
             string jwtStr = token.Result;
@@ -121,8 +149,15 @@ namespace WebApplication1.Controllers
             string id = tm.Uid;
             int user_id = 0;
             int.TryParse(id, out user_id);
-            var Parameter = myDbContext.User.FirstOrDefault(a => a.user_id == user_id);
-            return Ok(Parameter);
+            var Parameter = await TaskSearchUserId(user_id);
+            return Parameter;
+        }
+
+        private async Task<User> TaskSearchUserId(int user_id)
+        {
+            // return string.Format("task 执行线程:{0}", Thread.CurrentThread.ManagedThreadId);
+            var result = await myDbContext.Set<User>().FirstOrDefaultAsync(a => a.user_id == user_id);
+            return result;
         }
 
         // 搜索某个团购主

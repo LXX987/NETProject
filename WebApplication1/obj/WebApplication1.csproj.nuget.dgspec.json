@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "E:\\NET课程\\0624latestProjectBackEnd\\NETProject\\WebApplication1\\WebApplication1.csproj": {}
+    "D:\\大学\\大三下\\.NET程序设计\\项目\\back\\NETProject\\WebApplication1\\WebApplication1.csproj": {}
   },
   "projects": {
-    "E:\\NET课程\\0624latestProjectBackEnd\\NETProject\\WebApplication1\\WebApplication1.csproj": {
+    "D:\\大学\\大三下\\.NET程序设计\\项目\\back\\NETProject\\WebApplication1\\WebApplication1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\NET课程\\0624latestProjectBackEnd\\NETProject\\WebApplication1\\WebApplication1.csproj",
+        "projectUniqueName": "D:\\大学\\大三下\\.NET程序设计\\项目\\back\\NETProject\\WebApplication1\\WebApplication1.csproj",
         "projectName": "WebApplication1",
-        "projectPath": "E:\\NET课程\\0624latestProjectBackEnd\\NETProject\\WebApplication1\\WebApplication1.csproj",
-        "packagesPath": "C:\\Users\\W\\.nuget\\packages\\",
-        "outputPath": "E:\\NET课程\\0624latestProjectBackEnd\\NETProject\\WebApplication1\\obj\\",
+        "projectPath": "D:\\大学\\大三下\\.NET程序设计\\项目\\back\\NETProject\\WebApplication1\\WebApplication1.csproj",
+        "packagesPath": "C:\\Users\\lwf\\.nuget\\packages\\",
+        "outputPath": "D:\\大学\\大三下\\.NET程序设计\\项目\\back\\NETProject\\WebApplication1\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\W\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lwf\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
